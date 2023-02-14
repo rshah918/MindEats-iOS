@@ -15,11 +15,17 @@ struct HomeView: View {
             VStack{
                 Text("Welcome, " + firstName)
                     .font(.title)
+                    .fontWeight(.semibold)
                     .foregroundColor(Color.white)
+                    .multilineTextAlignment(.leading)
+                    .padding([.trailing], 140.0)
+                    .padding([.top], 30)
+                    
                     
                     
                 Spacer()
-                    .frame(height: 100)
+                    .padding()
+                    .frame(height: 60)
                 
                 Image("Home-Page.png")
                     .resizable()
@@ -75,8 +81,6 @@ struct HomeView: View {
                 .frame(width: UIScreen.main.bounds.width, height: 100, alignment: .bottom)
                 .cornerRadius(15)
                 .position(CGPoint(x: UIScreen.main.bounds.width/2,y:40))
-
-                    
             }
             .background(Color.green
                 .edgesIgnoringSafeArea(.all)
@@ -87,8 +91,8 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        var firstName = "Rahul"
-        var lastName = "Shah"
+        let firstName = "Rahul"
+        let lastName = "Shah"
         HomeView(firstName: Binding.constant(firstName), lastName: Binding.constant(lastName))
     }
 }
