@@ -11,6 +11,8 @@ import SwiftUI
 struct ContentView: View {
     @State var isActive:Bool = false
     @State private var isLoggedIn: Bool = false
+    @State private var firstName = "Rahul"
+    @State private var lastName = "Shah"
     
     var body: some View {
         NavigationView {
@@ -20,7 +22,7 @@ struct ContentView: View {
                         LoginView(isLoggedIn: $isLoggedIn)
                     }
                     else{
-                        HomeView()
+                        HomeView(firstName: $firstName, lastName: $lastName)
                     }
                 } else {
                     Image("ME-color-logo.png")
