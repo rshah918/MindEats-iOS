@@ -45,6 +45,33 @@ struct HomeView: View {
                         .cornerRadius(15)
                         
                 }
+                Spacer()
+                    .frame(height:180)
+                
+                
+                TabView {
+                    Button(action:{}){}
+                        .tabItem {
+                            Image(systemName: "phone.fill")
+                            Text("Home")
+                        }
+                    Button(action:{}){}
+                        .tabItem {
+                            Image(systemName: "tv.fill")
+                            Text("History")
+                        }
+                    Button(action:{}){}
+                        .tabItem {
+                            Image(systemName: "tv.fill")
+                            Text("Categories")
+                        }
+                    Button(action:{}){}
+                        .tabItem {
+                            Image(systemName: "tv.fill")
+                            Text("Profile")
+                        }
+                }.frame(alignment: .bottom)
+                    
             }
             .background(Color.green
                 .edgesIgnoringSafeArea(.all)
