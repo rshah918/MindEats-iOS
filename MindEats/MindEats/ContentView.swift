@@ -7,17 +7,43 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        ZStack {
-            Image("ME-color-logo.png")
-                .resizable()
-                .scaledToFit()
-                .background(Color.green)
 
-        }.background(Color.green
-            .edgesIgnoringSafeArea(.all)
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+struct ContentView: View {
+    @State var isActive:Bool = false
+    @State private var isLoggedIn: Bool = false
+    
+    var body: some View {
+        NavigationView {
+            ZStack {
+                if self.isActive {
+                    if !isLoggedIn{
+                        LoginView(isLoggedIn: $isLoggedIn)
+                    }
+                    else{
+                        HomeView()
+                    }
+                } else {
+                    Image("ME-color-logo.png")
+                        .resizable()
+                        .scaledToFit()
+                        .background(Color.green)
+                    
+                }
+            }
+            .background(Color.green
+                .edgesIgnoringSafeArea(.all)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+            
+            .onAppear {
+                // 6.
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    // 7.
+                    withAnimation {
+                        self.isActive = true
+                    }
+                }
+            }
+        }
     }
 }
 
