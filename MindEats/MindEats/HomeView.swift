@@ -46,10 +46,11 @@ struct HomeView: View {
                         
                 }
                 Spacer()
-                    .frame(height:180)
+                    .frame(height:190)
                 
                 
                 TabView {
+                
                     Button(action:{}){}
                         .tabItem {
                             Image(systemName: "phone.fill")
@@ -70,7 +71,11 @@ struct HomeView: View {
                             Image(systemName: "tv.fill")
                             Text("Profile")
                         }
-                }.frame(alignment: .bottom)
+                }
+                .frame(width: UIScreen.main.bounds.width, height: 100, alignment: .bottom)
+                .cornerRadius(15)
+                .position(CGPoint(x: UIScreen.main.bounds.width/2,y:40))
+
                     
             }
             .background(Color.green
