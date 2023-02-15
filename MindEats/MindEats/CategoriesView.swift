@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct CategoriesView: View {
+struct CategoryView: View {
+    let categories: [Category]
+    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    
     var body: some View {
         ZStack{
-           Color.green.ignoresSafeArea()
+            Color.green.ignoresSafeArea()
+            ScrollView {
             VStack{
                 Image("AppIcon.png")
                     .resizable()
@@ -27,143 +31,56 @@ struct CategoriesView: View {
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
-                HStack{
-                    NavigationLink(destination: FocusView()){
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 150, height: 150)
-                                .foregroundColor(.white)
-                                .cornerRadius(15.0)
-                            VStack{
-                                Image("focus.png")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .scaledToFit()
+                
+                
+                
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(categories, id: \.category) { category in
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 150, height: 150)
                                     .foregroundColor(.white)
                                     .cornerRadius(15.0)
-                                
-                                Text("Focus")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color.black)
+                                VStack{
+                                    Image(category.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 100)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(15.0)
                                     
+                                    Text(category.category)
+                                        .fontWeight(.bold)
+                                }
                             }
                         }
                     }
-                    
-                    Spacer()
-                        .frame(width: 30)
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 150, height: 150)
-                            .foregroundColor(.white)
-                            .cornerRadius(15.0)
-                        VStack{
-                            Image("anti-stress.png")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                                .foregroundColor(.white)
-                                .cornerRadius(15.0)
-                            
-                            Text("Anti Stress")
-                                .fontWeight(.bold)
-                        }
-                    }
-                    
-                }
-                Spacer()
-                    .frame(height:20)
-                HStack{
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 150, height: 150)
-                            .foregroundColor(.white)
-                            .cornerRadius(15.0)
-                        VStack{
-                            Image("energy.png")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                                .foregroundColor(.white)
-                                .cornerRadius(15.0)
-                            
-                            Text("Energy")
-                                .fontWeight(.bold)
-                        }
-                    }
-                    
-                    Spacer()
-                        .frame(width: 30)
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 150, height: 150)
-                            .foregroundColor(.white)
-                            .cornerRadius(15.0)
-                        VStack{
-                            Image("mood-lifting.png")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .cornerRadius(15.0)
-                            
-                            Text("Mood Lifting")
-                                .fontWeight(.bold)
-                        }
-                    }
-                }
-                Spacer()
-                .frame(height:20)
-                HStack{
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 150, height: 150)
-                            .foregroundColor(.white)
-                            .cornerRadius(15.0)
-                        VStack{
-                            Image("immunity.png")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .cornerRadius(15.0)
-                            
-                            Text("Immunity")
-                                .fontWeight(.bold)
-                        }
-                    }
-                    Spacer()
-                        .frame(width: 30)
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 150, height: 150)
-                            .foregroundColor(.clear)
-                            .cornerRadius(15.0)
-                        VStack{
-                            Image("")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 80, height: 80)
-                                .foregroundColor(.white)
-                                .cornerRadius(15.0)
-                            
-                            Text("")
-                                .fontWeight(.bold)
-                        }
-                    }
-                    
                 }
             }
         }
+        }
     }
-    func loadCategory() -> [String] {
-           guard let url = Bundle.main.url(forResource: "categories", withExtension: "json"),
-                 let data = try? Data(contentsOf: url),
-                 let categories = try? JSONDecoder().decode([String].self, from: data)
-           else { return [] }
-           return categories
-       }
+struct Category: Decodable {
+    let category: String
+    let image: String
+}
+
+struct CategoriesView: View {
+    @State var categories: [Category] = []
+    
+    var body: some View {
+        CategoryView(categories: categories)
+            .onAppear {
+                if let fileURL = Bundle.main.url(forResource: "categories", withExtension: "json") {
+                    do {
+                        let data = try Data(contentsOf: fileURL)
+                        categories = try JSONDecoder().decode([Category].self, from: data)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+    }
 }
 
 struct CategoriesView_Previews: PreviewProvider {
@@ -171,3 +88,4 @@ struct CategoriesView_Previews: PreviewProvider {
         CategoriesView()
     }
 }
+

@@ -119,14 +119,14 @@
 				558D4CBF299C27F8006FFF97 /* LogInView.swift */,
 				558D4CC7299C8CE9006FFF97 /* ProfileView.swift */,
 				558D4C94299AEC6C006FFF97 /* MindEatsApp.swift */,
+				558D4CD3299D5358006FFF97 /* categories.json */,
+				558D4CC9299C9552006FFF97 /* FocusView.swift */,
 				558D4C96299AEC6C006FFF97 /* ContentView.swift */,
+				558D4CD1299D411D006FFF97 /* health_facts.json */,
 				558D4CC3299C56CC006FFF97 /* CategoriesView.swift */,
 				558D4C98299AEC6D006FFF97 /* Assets.xcassets */,
 				558D4C9A299AEC6D006FFF97 /* MindEats.entitlements */,
 				558D4C9B299AEC6D006FFF97 /* Preview Content */,
-				558D4CC9299C9552006FFF97 /* FocusView.swift */,
-				558D4CD1299D411D006FFF97 /* health_facts.json */,
-				558D4CD3299D5358006FFF97 /* categories.json */,
 			);
 			path = MindEats;
 			sourceTree = "<group>";
