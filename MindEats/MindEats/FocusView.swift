@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FocusView: View {
+    let category: Category
+    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    
     var body: some View {
         ZStack{
             Color.green.ignoresSafeArea()
@@ -18,7 +21,7 @@ struct FocusView: View {
                     .foregroundColor(.white)
                     .cornerRadius(15.0)
                 
-                Text("You Selected: Focus")
+                Text("You Selected: \(category.category)")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
@@ -29,46 +32,32 @@ struct FocusView: View {
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
                
-                HStack{
-                    NavigationLink(destination: FocusView()){
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 150, height: 150)
-                                .foregroundColor(.white)
-                                .cornerRadius(15.0)
-                            VStack{
-                                Image("fish.png")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .scaledToFit()
-                                    .foregroundColor(.white)
-                                    .cornerRadius(15.0)
-                                
-                                Text("Fish")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color.black)
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(category.ingredients, id: \.name) { ingredient in
+                            NavigationLink(destination: FocusView(category: category)) {
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 150, height: 150)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(15.0)
+                                    VStack{
+                                        Image(ingredient.image)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                            .scaledToFit()
+                                            .foregroundColor(.white)
+                                            .cornerRadius(15.0)
+                                        
+                                        Text(ingredient.name)
+                                            .font(.headline)
+                                            .fontWeight(.semibold)
+                                            .multilineTextAlignment(.center)
+                                            .foregroundColor(.black)
+                                    }
+                                }
                             }
-                        }
-                    }
-                    
-                    Spacer()
-                        .frame(width: 30)
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 150, height: 150)
-                            .foregroundColor(.white)
-                            .cornerRadius(15.0)
-                        VStack{
-                            Image("broccoli.png")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                                .foregroundColor(.white)
-                                .cornerRadius(15.0)
-                            
-                            Text("Broccoli")
-                                .fontWeight(.bold)
                         }
                     }
                 }
@@ -77,8 +66,9 @@ struct FocusView: View {
     }
 }
 
-struct FocusView_Previews: PreviewProvider {
-    static var previews: some View {
-        FocusView()
-    }
-}
+
+//struct FocusView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FocusView()
+//    }
+//}
