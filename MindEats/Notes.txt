@@ -6,4 +6,5 @@ Todo:
  Dynamically create category cards
  Dynamically create ingredient cards
  Dynamically pull quotes
+    -DONE
  

@@ -157,6 +157,13 @@ struct CategoriesView: View {
             }
         }
     }
+    func loadCategory() -> [String] {
+           guard let url = Bundle.main.url(forResource: "categories", withExtension: "json"),
+                 let data = try? Data(contentsOf: url),
+                 let categories = try? JSONDecoder().decode([String].self, from: data)
+           else { return [] }
+           return categories
+       }
 }
 
 struct CategoriesView_Previews: PreviewProvider {
