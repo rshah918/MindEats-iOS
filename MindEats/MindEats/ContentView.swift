@@ -13,16 +13,22 @@ struct ContentView: View {
     @State private var isLoggedIn: Bool = false
     @State private var firstName = "Rahul"
     @State private var lastName = "Shah"
+    @State private var selection = 1
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 if self.isActive {
                     if !isLoggedIn{
                         LoginView(isLoggedIn: $isLoggedIn)
                     }
                     else{
-                        HomeView(firstName: $firstName, lastName: $lastName)
+                        if selection == 1{
+                            HomeView(firstName: $firstName, lastName: $lastName, selection: $selection)
+                        }
+                        else if selection == 3{
+                            CategoriesView()
+                        }
                     }
                 } else {
                     Image("ME-color-logo.png")
