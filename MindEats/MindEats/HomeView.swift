@@ -11,6 +11,7 @@ struct HomeView: View {
     @Binding var firstName: String
     @Binding var lastName: String
     @Binding var selection: Int
+    var facts = ["Laughing is good for the heart and can increase blood flow by 20 percent", "Your skin works hard. Not only is it the largest organ in the body, but it regulates your temperature and defends against disease and infection", "Exercise will give you more energy, even when you’re tired.", "A lack of exercise now causes as many deaths as smoking.", "39% of adults in the world are overweight.", "Eating oatmeal provides a serotonin boost to calm the brain and improve your mood.", "Women below the age of 50 need twice the amount of iron per day as men of the same age.", "The amino acid found in eggs can help improve your reflexes.", "Extra virgin olive oil is the healthiest fat on the planet."]
     var body: some View {
         NavigationStack {
             ZStack{
@@ -24,8 +25,6 @@ struct HomeView: View {
                         .padding([.trailing], 140.0)
                         .padding([.top], 30)
                     
-                    
-                    
                     Spacer()
                         .padding()
                         .frame(height: 60)
@@ -35,10 +34,13 @@ struct HomeView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 400, height: 250)
                     Text("Health Fact of the Day!")
+                        
                     Spacer()
                         .frame(height: 20)
                     
-                    Text("A dick a day keeps the doctor away!")
+                    Text(facts[Int.random(in: 0..<facts.count)])
+                        .frame(width: UIScreen.main.bounds.width)
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     Spacer()
                         .frame(height: 20)

@@ -1,0 +1,9 @@
+1/14/2023
+
+Added a bunch of views. Good progress today.
+
+Todo:
+ Dynamically create category cards
+ Dynamically create ingredient cards
+ Dynamically pull quotes
+ 

@@ -45,6 +45,8 @@ struct CategoriesView: View {
                                 
                                 Text("Focus")
                                     .fontWeight(.bold)
+                                    .foregroundColor(Color.black)
+                                    
                             }
                         }
                     }
