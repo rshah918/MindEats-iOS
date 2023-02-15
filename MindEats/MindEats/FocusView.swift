@@ -12,8 +12,10 @@ struct FocusView: View {
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     var body: some View {
+        
         ZStack{
             Color.green.ignoresSafeArea()
+            ScrollView {
             VStack{
                 Image("AppIcon.png")
                     .resizable()
@@ -32,7 +34,6 @@ struct FocusView: View {
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
                
-                ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(category.ingredients, id: \.name) { ingredient in
                             NavigationLink(destination: FocusView(category: category)) {
