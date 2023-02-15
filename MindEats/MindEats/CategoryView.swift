@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FocusView: View {
+struct CategoryView: View {
     let category: Category
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
@@ -36,7 +36,7 @@ struct FocusView: View {
                
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(category.ingredients, id: \.name) { ingredient in
-                            NavigationLink(destination: FocusView(category: category)) {
+                            NavigationLink(destination: CategoryView(category: category)) {
                                 ZStack {
                                     Rectangle()
                                         .frame(width: 150, height: 150)

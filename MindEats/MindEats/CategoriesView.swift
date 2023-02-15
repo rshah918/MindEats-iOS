@@ -43,7 +43,7 @@ struct CategoriesView: View {
                         .multilineTextAlignment(.leading)
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(categories, id: \.category) { category in
-                            NavigationLink(destination: FocusView(category: category)) {
+                            NavigationLink(destination: CategoryView(category: category)) {
                                 ZStack {
                                     Rectangle()
                                         .frame(width: 150, height: 150)
