@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     @State var isActive:Bool = false
     @State private var isLoggedIn: Bool = false
     @State private var firstName = "Rahul"
     @State private var lastName = "Shah"
     @State private var selection = 1
+    @State private var health_facts: [String] = []
     
     var body: some View {
         NavigationStack {
