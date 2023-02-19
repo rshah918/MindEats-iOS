@@ -4,7 +4,39 @@ Added a bunch of views. Good progress today.
 
 Todo:
  Dynamically create category cards
+    -DONE
  Dynamically create ingredient cards
+    -DONE
  Dynamically pull quotes
     -DONE
  
+1/19/2023
+Meeting with Varun and Sai:
+-Demo App
+-Discuss Scroll behavior
+    -Option B
+-Discuss empty ingredient card behavior
+    -Delete cards that have no ingredients
+    
+-Discuss nutrition based meal filters
+    - filter on saturated fat <4g, <5g, <7.5g, <10g, count number of passing meals.
+    - filter on sodium <300mg, <460mg
+    - filter on cholesterhol <60mg, <80mg, <100mg
+
+Action Items:
+    Rahul:
+        -Try different filter combos, put in google sheet
+        -Update empty card behavior
+        -get app to talk to server
+        -Figure out login
+        -Add infinite scroll meal page
+        -Dynamially get user's first name after login
+        -Fix iPad category view bug
+        -Fix nav bar
+        -Run scraper on HelloFresh
+            -Add meal data to the database
+        
+    Varun, Sai, Amritesh:
+        -Talk to sai and amy about food data
+        
+

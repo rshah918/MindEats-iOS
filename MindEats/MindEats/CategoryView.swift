@@ -17,9 +17,9 @@ struct CategoryView: View {
             Color.green.ignoresSafeArea()
             ScrollView {
             VStack{
-                Image("AppIcon.png")
+                Image("ME-color-logo.png")
                     .resizable()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 300, height: 90)
                     .foregroundColor(.white)
                     .cornerRadius(15.0)
                 

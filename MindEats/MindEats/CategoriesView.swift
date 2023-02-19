@@ -26,21 +26,22 @@ struct CategoriesView: View {
  
             ScrollView {
                 VStack{
-                    Image("AppIcon.png")
+                    Image("ME-color-logo.png")
                         .resizable()
-                        .frame(width: 100, height: 100)
+                        .frame(width: 300, height: 90)
                         .foregroundColor(.white)
                         .cornerRadius(15.0)
                     
-                    Text("Welcome to MindEats!")
+                    Text("")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                     Text("Current Categories")
-                        .font(.title3)
+                        .font(.title2)
                         .foregroundColor(Color.white)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
+                    
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(categories, id: \.category) { category in
                             NavigationLink(destination: CategoryView(category: category)) {
