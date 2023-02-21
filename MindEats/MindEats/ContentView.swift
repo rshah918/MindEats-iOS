@@ -20,7 +20,7 @@ struct ContentView: View {
             ZStack {
                 if self.isActive {
                     if !isLoggedIn{
-                        LoginView(isLoggedIn: $isLoggedIn)
+                        LoginView(isLoggedIn: $isLoggedIn, selection: $selection)
                     }
                     else{
                         if selection == 1{

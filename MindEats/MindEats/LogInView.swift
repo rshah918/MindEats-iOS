@@ -11,6 +11,7 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @Binding var isLoggedIn: Bool
+    @Binding var selection: Int
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -25,18 +26,21 @@ struct LoginView: View {
 
                 Text("Login")
                     .font(.largeTitle)
-                    .foregroundColor(.white)
                     .padding()
                 TextField("Email", text: $email)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
+                    .colorScheme(.light)
+                    
                 SecureField("Password", text: $password)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
+                    .colorScheme(.light)
+                
                 Button(action: {
                     isLoggedIn.toggle()
                     // Handle login button press
@@ -53,13 +57,12 @@ struct LoginView: View {
                 HStack {
                     Text("Don't have an account?")
                         .foregroundColor(.white)
-                    Button(action: {
-                        // Handle sign up button press
-                        isLoggedIn.toggle()
-                    }) {
-                        Text("Sign up")
-                            .foregroundColor(.white)
-                            .underline()
+                    NavigationLink(destination: SignUpView(isLoggedIn: $isLoggedIn, selection: $selection)) {
+                        VStack{
+                            Text("Sign up")
+                                .foregroundColor(.white)
+                                .underline()
+                        }
                     }
                 }
             }

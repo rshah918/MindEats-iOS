@@ -25,6 +25,7 @@ Meeting with Varun and Sai:
 
 Action Items:
     Rahul:
+        -Send blurb to amritesh
         -Try different filter combos, put in google sheet
         -Update empty card behavior
         -get app to talk to server
@@ -35,8 +36,11 @@ Action Items:
         -Fix nav bar
         -Run scraper on HelloFresh
             -Add meal data to the database
-        
     Varun, Sai, Amritesh:
         -Talk to sai and amy about food data
+        -Send blurb to Amritesh
+    Amritesh:
+        -Draft nutritionist email
         
-
+1/20/2023
+Enrolled in the Apple Developer Program. Will take a few days for the enrollment to process. Immediate goal is to distribute the app on Testflight and get it to the rest of the team.
