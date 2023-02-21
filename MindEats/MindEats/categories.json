@@ -1,6 +1,6 @@
 [
     {"category": "Focus", "image": "focus.png", "ingredients": [{"name": "fish", "image": "fish.png"}, {"name": "broccoli", "image": "broccoli.png"}]},
-    {"category": "Anti Stress", "image": "anti-stress.png", "ingredients": [{"name": "varun", "image": "fish.png"}]},
+    {"category": "Anti Stress", "image": "anti-stress.png", "ingredients": [{"name": "varun", "image": "varun.JPG"}]},
     {"category": "Energy", "image": "energy.png", "ingredients": []},
     {"category": "Mood Lifting", "image": "mood-lifting.png", "ingredients": []},
     {"category": "Immunity", "image": "immunity.png", "ingredients": []}

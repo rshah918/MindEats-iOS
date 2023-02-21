@@ -11,8 +11,9 @@ struct CategoryView: View {
     let category: Category
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
+    @State var selectedIngredient = ""
     var body: some View {
-        
+
         ZStack{
             Color.green.ignoresSafeArea()
             ScrollView {
@@ -36,7 +37,9 @@ struct CategoryView: View {
                
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(category.ingredients, id: \.name) { ingredient in
-                            NavigationLink(destination: CategoryView(category: category)) {
+                            NavigationLink(destination: MealListView(selectedIngredient: $selectedIngredient).onAppear {
+                                selectedIngredient = ingredient.name
+                            }) {
                                 ZStack {
                                     Rectangle()
                                         .frame(width: 150, height: 150)

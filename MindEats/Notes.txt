@@ -44,3 +44,7 @@ Action Items:
         
 1/20/2023
 Enrolled in the Apple Developer Program. Will take a few days for the enrollment to process. Immediate goal is to distribute the app on Testflight and get it to the rest of the team.
+
+1/21/2023
+
+Added the signup page. Simplified navigation logic, I got rid of the selector in ContentView and am just using navigationlinks for everything
