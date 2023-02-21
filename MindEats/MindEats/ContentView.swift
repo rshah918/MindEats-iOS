@@ -12,7 +12,6 @@ struct ContentView: View {
     @State private var isLoggedIn: Bool = false
     @State private var firstName = "Rahul"
     @State private var lastName = "Shah"
-    @State private var selection = 1
     @State private var health_facts: [String] = []
     
     var body: some View {
@@ -20,15 +19,10 @@ struct ContentView: View {
             ZStack {
                 if self.isActive {
                     if !isLoggedIn{
-                        LoginView(isLoggedIn: $isLoggedIn, selection: $selection)
+                        LoginView(isLoggedIn: $isLoggedIn)
                     }
                     else{
-                        if selection == 1{
-                            HomeView(firstName: $firstName, lastName: $lastName, selection: $selection)
-                        }
-                        else if selection == 3{
-                            CategoriesView()
-                        }
+                        HomeView(firstName: $firstName, lastName: $lastName)
                     }
                 } else {
                     Image("ME-color-logo.png")

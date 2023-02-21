@@ -14,7 +14,6 @@ struct SignUpView: View {
     @State private var lastName = ""
     @State private var phoneNumber = ""
     @Binding var isLoggedIn: Bool
-    @Binding var selection: Int
     @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack{
@@ -98,7 +97,7 @@ struct SignUpView: View {
                         .padding(.bottom, 20)
                         .colorScheme(.light)
                     
-                    NavigationLink(destination: HomeView(firstName: $firstName, lastName: $lastName, selection: $selection)) {
+                    NavigationLink(destination: HomeView(firstName: $firstName, lastName: $lastName)) {
                         Text("Sign Up")
                             .font(.headline)
                             .foregroundColor(.green)

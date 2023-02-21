@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @Binding var firstName: String
     @Binding var lastName: String
-    @Binding var selection: Int
 
     var body: some View {
         NavigationStack {
@@ -61,7 +60,7 @@ struct HomeView: View {
                         
                     
                     HStack{
-                        NavigationLink( destination:HomeView(firstName: $firstName, lastName: $lastName, selection: $selection).navigationBarBackButtonHidden(true)){
+                        NavigationLink( destination:HomeView(firstName: $firstName, lastName: $lastName).navigationBarBackButtonHidden(true)){
                             VStack{
                                     Image(systemName: "house.fill")
                                     Text("Home")
@@ -129,7 +128,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         let firstName = "Rahul"
         let lastName = "Shah"
-        let selection = 1
-        HomeView(firstName: Binding.constant(firstName), lastName: Binding.constant(lastName), selection: Binding.constant(selection))
+        HomeView(firstName: Binding.constant(firstName), lastName: Binding.constant(lastName))
     }
 }

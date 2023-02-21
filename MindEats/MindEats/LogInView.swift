@@ -11,7 +11,6 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @Binding var isLoggedIn: Bool
-    @Binding var selection: Int
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -57,7 +56,7 @@ struct LoginView: View {
                 HStack {
                     Text("Don't have an account?")
                         .foregroundColor(.white)
-                    NavigationLink(destination: SignUpView(isLoggedIn: $isLoggedIn, selection: $selection)) {
+                    NavigationLink(destination: SignUpView(isLoggedIn: $isLoggedIn)) {
                         VStack{
                             Text("Sign up")
                                 .foregroundColor(.white)
