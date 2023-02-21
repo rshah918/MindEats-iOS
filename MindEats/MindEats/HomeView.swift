@@ -37,7 +37,7 @@ struct HomeView: View {
                             .frame(height: 20)
                         let health_facts = loadFact()
                         Text(health_facts.randomElement() ?? "")
-                            .frame(width: UIScreen.main.bounds.width)
+                            .padding()
                             .lineLimit(10)
                             .fixedSize(horizontal: false, vertical: true)
                             .minimumScaleFactor(0.8)
