@@ -39,11 +39,9 @@ struct LoginView: View {
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                     .colorScheme(.light)
-                
-                Button(action: {
-                    isLoggedIn.toggle()
-                    // Handle login button press
-                }) {
+                NavigationLink(destination: HomeView(firstName: Binding.constant(""), lastName: Binding.constant(""))
+                    .navigationBarBackButtonHidden(true)
+                    .onAppear{isLoggedIn.toggle()}) {
                     Text("Login")
                         .font(.headline)
                         .foregroundColor(.green)
