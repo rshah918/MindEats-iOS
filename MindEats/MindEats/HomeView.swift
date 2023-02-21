@@ -19,8 +19,8 @@ struct HomeView: View {
                             .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.white)
-                            .multilineTextAlignment(.leading)
-                            .padding([.trailing], 140.0)
+                            .padding()
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.top], 30)
                         
                         Spacer()
