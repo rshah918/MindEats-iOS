@@ -23,7 +23,7 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .cornerRadius(15.0)
 
-                Text("Login")
+                Text("Log In")
                     .font(.largeTitle)
                     .padding()
                 TextField("Email", text: $email)
@@ -42,7 +42,7 @@ struct LoginView: View {
                 NavigationLink(destination: HomeView(firstName: Binding.constant(""), lastName: Binding.constant(""))
                     .navigationBarBackButtonHidden(true)
                     .onAppear{isLoggedIn.toggle()}) {
-                    Text("Login")
+                    Text("Log In")
                         .font(.headline)
                         .foregroundColor(.green)
                         .padding()
