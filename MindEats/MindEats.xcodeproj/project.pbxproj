@@ -25,6 +25,7 @@
 		558D4CD6299D90E2006FFF97 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4CD5299D90E2006FFF97 /* CategoryView.swift */; };
 		558D4CD829A51085006FFF97 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4CD729A51084006FFF97 /* SignUpView.swift */; };
 		558D4CDA29A531D9006FFF97 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4CD929A531D9006FFF97 /* MealListView.swift */; };
+		55CAB8E829A66EBD00F5BFED /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = 55CAB8E729A66EBD00F5BFED /* meals.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		558D4CD5299D90E2006FFF97 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		558D4CD729A51084006FFF97 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		558D4CD929A531D9006FFF97 /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
+		55CAB8E729A66EBD00F5BFED /* meals.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				558D4C9B299AEC6D006FFF97 /* Preview Content */,
 				558D4CD729A51084006FFF97 /* SignUpView.swift */,
 				558D4CD929A531D9006FFF97 /* MealListView.swift */,
+				55CAB8E729A66EBD00F5BFED /* meals.json */,
 			);
 			path = MindEats;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				558D4CCC299C99A0006FFF97 /* Notes.txt in Resources */,
 				558D4C99299AEC6D006FFF97 /* Assets.xcassets in Resources */,
 				558D4CD4299D5358006FFF97 /* categories.json in Resources */,
+				55CAB8E829A66EBD00F5BFED /* meals.json in Resources */,
 				558D4CD2299D411D006FFF97 /* health_facts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

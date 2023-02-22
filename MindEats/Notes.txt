@@ -50,3 +50,5 @@ Enrolled in the Apple Developer Program. Will take a few days for the enrollment
 Added the signup page. Simplified navigation logic, I got rid of the selector in ContentView and am just using navigationlinks for everything. Added a basic meal view with dummy meals.
     1) Change this to pull meals from JSON, eventually lazy load from server.
     
+1/22/2023
+Fleshed out the Meals list page. Added infinte scroll, and pulls from JSON. Got rid of the fugly grid view, it doesnt make sense. 

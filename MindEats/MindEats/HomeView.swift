@@ -15,6 +15,58 @@ struct HomeView: View {
         NavigationStack {
             ZStack{
                 VStack{
+                    Spacer()
+                    
+                    HStack{
+                        NavigationLink( destination:HomeView(firstName: $firstName, lastName: $lastName).navigationBarBackButtonHidden(true)){
+                            VStack{
+                                Image(systemName: "house.fill")
+                                Text("Home")
+                                    .font(.title3)
+                                    .foregroundColor(Color.gray)
+                                
+                            }
+                        }
+                        
+                        NavigationLink( destination:HistoryView().navigationBarBackButtonHidden(false)){
+                            VStack{
+                                Image(systemName: "arrow.counterclockwise")
+                                Text("History")
+                                    .font(.title3)
+                                    .foregroundColor(Color.gray)
+                                
+                            }
+                        }
+                        
+                        NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
+                            VStack{
+                                Image(systemName: "square.on.square")
+                                
+                                Text("Categories")
+                                    .font(.title3)
+                                    .foregroundColor(Color.gray)
+                            }
+                        }
+                        
+                        NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
+                            VStack{
+                                Image(systemName: "person.fill")
+                                Text("Profile")
+                                    .font(.title3)
+                                    .foregroundColor(Color.gray)
+                            }
+                        }
+                    }
+                    
+                    .padding(30)
+                    .frame(width: UIScreen.main.bounds.width, height: 120, alignment: .bottom)
+                    .background(Color.white)
+                    .cornerRadius(15)
+                }
+                .zIndex(1)
+                .ignoresSafeArea()
+                ScrollView{
+                    VStack{
                         Text("Welcome, " + firstName)
                             .font(.title)
                             .fontWeight(.semibold)
@@ -25,7 +77,7 @@ struct HomeView: View {
                         
                         Spacer()
                             .padding()
-                            .frame(height: 60)
+                            .frame(height: 0)
                         
                         Image("Home-Page.png")
                             .resizable()
@@ -55,64 +107,15 @@ struct HomeView: View {
                                 .cornerRadius(15)
                             
                         }
-                    Spacer()
-                        .frame(minHeight: 70, idealHeight:180, maxHeight: 200)
-                        
-                    
-                    HStack{
-                        NavigationLink( destination:HomeView(firstName: $firstName, lastName: $lastName).navigationBarBackButtonHidden(true)){
-                            VStack{
-                                    Image(systemName: "house.fill")
-                                    Text("Home")
-                                    .font(.title3)
-                                    .foregroundColor(Color.gray)
-                                
-                            }
-                        }
-                        
-                        NavigationLink( destination:HistoryView().navigationBarBackButtonHidden(false)){
-                            VStack{
-                                    Image(systemName: "arrow.counterclockwise")
-                                    Text("History")
-                                    .font(.title3)
-                                    .foregroundColor(Color.gray)
-                                
-                            }
-                        }
-                        
-                        NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
-                            VStack{
-                                Image(systemName: "square.on.square")
-                                    
-                                    Text("Categories")
-                                    .font(.title3)
-                                    .foregroundColor(Color.gray)
-                                
-                            }
-                        }
-                        
-                        NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
-                            VStack{
-                                    Image(systemName: "person.fill")
-                                Text("Profile")
-                                    .font(.title3)
-                                    .foregroundColor(Color.gray)
-                                
-                            }
-                        }
+                        Spacer()
+                            .frame(minHeight: 70, idealHeight:180, maxHeight: 200)
                     }
-                    
-                    .padding(15)
-                    .frame(width: UIScreen.main.bounds.width, height: 80, alignment: .bottom)
-                    .position(CGPoint(x: UIScreen.main.bounds.width/2,y: 70))
-                    .background(Color.white)
-                    .cornerRadius(15)
-                    .ignoresSafeArea()
                 }
             }
             .background(Color.green
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+                
         }
     }
     func loadFact() -> [String] {

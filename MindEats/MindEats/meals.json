@@ -1,0 +1,7 @@
+[
+    {"name": "Turkey Sandwich", "description": "Sandwich with turkey in it", "price": 20.0, "imageName": "broccoli.png"},
+    {"name": "Knuckle Sandwich", "description": "F around and find out", "price": 20.0, "imageName": "knuckle-sandwhich.png"},
+    {"name": "Varun the snacc", "description": "I hope you're Reddy", "price": 69.0, "imageName": "varun.JPG"},
+    {"name": "Hot Cheetos", "description": "It ain't easy being cheesy", "price": 5.0, "imageName": "cheeto.jpeg"},
+    {"name": "Fish", "description": "Fish are friends, not food", "price": 40.0, "imageName": "fish.png"}
+]
