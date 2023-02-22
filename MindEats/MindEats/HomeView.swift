@@ -21,6 +21,8 @@ struct HomeView: View {
                         NavigationLink( destination:HomeView(firstName: $firstName, lastName: $lastName).navigationBarBackButtonHidden(true)){
                             VStack{
                                 Image(systemName: "house.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
                                 Text("Home")
                                     .font(.title3)
                                     .foregroundColor(Color.gray)
@@ -31,6 +33,8 @@ struct HomeView: View {
                         NavigationLink( destination:HistoryView().navigationBarBackButtonHidden(false)){
                             VStack{
                                 Image(systemName: "arrow.counterclockwise")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
                                 Text("History")
                                     .font(.title3)
                                     .foregroundColor(Color.gray)
@@ -41,6 +45,8 @@ struct HomeView: View {
                         NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
                             VStack{
                                 Image(systemName: "square.on.square")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
                                 
                                 Text("Categories")
                                     .font(.title3)
@@ -51,6 +57,8 @@ struct HomeView: View {
                         NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
                             VStack{
                                 Image(systemName: "person.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
                                 Text("Profile")
                                     .font(.title3)
                                     .foregroundColor(Color.gray)
@@ -58,8 +66,9 @@ struct HomeView: View {
                         }
                     }
                     
-                    .padding(30)
-                    .frame(width: UIScreen.main.bounds.width, height: 120, alignment: .bottom)
+                    .padding(10)
+                    .padding(.bottom, 5)
+                    .frame(width: UIScreen.main.bounds.width, height: 75, alignment: .bottom)
                     .background(Color.white)
                     .cornerRadius(15)
                 }
@@ -100,9 +109,10 @@ struct HomeView: View {
                         NavigationLink(destination: CategoriesView()){
                             
                             Text("Find your next Meal!")
-                            
+                                .font(.title3)
+                                .fontWeight(.bold)
                                 .padding()
-                                .frame(width: 200, height: 50)
+                                .frame(width: 230, height: 60)
                                 .background(Color.white)
                                 .cornerRadius(15)
                             
