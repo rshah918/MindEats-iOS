@@ -26,6 +26,7 @@
 		558D4CD829A51085006FFF97 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4CD729A51084006FFF97 /* SignUpView.swift */; };
 		558D4CDA29A531D9006FFF97 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4CD929A531D9006FFF97 /* MealListView.swift */; };
 		55CAB8E829A66EBD00F5BFED /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = 55CAB8E729A66EBD00F5BFED /* meals.json */; };
+		55CAB8EA29A6F3D500F5BFED /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		558D4CD729A51084006FFF97 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		558D4CD929A531D9006FFF97 /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
 		55CAB8E729A66EBD00F5BFED /* meals.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
+		55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				558D4CD729A51084006FFF97 /* SignUpView.swift */,
 				558D4CD929A531D9006FFF97 /* MealListView.swift */,
 				55CAB8E729A66EBD00F5BFED /* meals.json */,
+				55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */,
 			);
 			path = MindEats;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				558D4CC0299C27F8006FFF97 /* LogInView.swift in Sources */,
 				558D4CC6299C8CDC006FFF97 /* HistoryView.swift in Sources */,
 				558D4CC2299C2FD1006FFF97 /* HomeView.swift in Sources */,
+				55CAB8EA29A6F3D500F5BFED /* MealDetailView.swift in Sources */,
 				558D4C97299AEC6C006FFF97 /* ContentView.swift in Sources */,
 				558D4CC4299C56CC006FFF97 /* CategoriesView.swift in Sources */,
 				558D4CC8299C8CE9006FFF97 /* ProfileView.swift in Sources */,

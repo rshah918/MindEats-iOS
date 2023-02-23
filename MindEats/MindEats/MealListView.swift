@@ -13,6 +13,8 @@ struct Meal: Codable {
     let description: String
     let price: Double
     let imageName: String
+    let ingredients: [String]
+    let recipe: String
 }
 
 class MealLoader: ObservableObject {
@@ -52,41 +54,55 @@ struct MealRow: View {
     let meal: Meal
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Image(meal.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width - 62, height: 200)
-                .clipped()
-                .cornerRadius(16)
-            
-            Text(meal.name)
-                .font(.headline)
-                .padding(.top, 8)
-            
-            Text(meal.description)
-                .font(.subheadline)
-                .foregroundColor(.gray)
-                .padding(.top, 4)
-            
-            Spacer()
-            
-            HStack {
-                Text("$\(meal.price, specifier: "%.2f")")
-                    .font(.headline)
-                Spacer()
-                Button("Add to Cart") {}
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
+        NavigationLink(destination: MealDetailView(meal: meal)){
+            VStack(alignment: .leading) {
+                Image(meal.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width - 62, height: 200)
+                    .clipped()
                     .cornerRadius(16)
+                
+                Text(meal.name)
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+                    .padding(.top, 8)
+                
+                Text(meal.description)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding(.top, 4)
+                
+                Spacer()
+                
+                HStack {
+                    Text("$\(meal.price, specifier: "%.2f")")
+                        .font(.headline)
+                    Spacer()
+                    
+                    Text("See Recipe")
+                        .font(.callout)
+                    
+                    
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(16)
+                    Spacer()
+                    Button("Add to Cart") {}
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(16)
+                }
             }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(16)
+            .shadow(radius: 5)
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(16)
-        .shadow(radius: 5)
     }
 }
 
