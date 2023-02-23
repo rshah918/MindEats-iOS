@@ -79,15 +79,15 @@ struct MealRow: View {
                     Text("$\(meal.price, specifier: "%.2f")")
                         .font(.headline)
                     Spacer()
-                    NavigationLink(destination: MealDetailView(meal: meal)){
-                        Text("Add to Cart")
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(16)
-                    }
+                    Text("Prep Time: 10 minutes")
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(16)
                 }
+                .frame(width: UIScreen.main.bounds.width - 62)
+
             }
             .padding()
             .background(Color.white)

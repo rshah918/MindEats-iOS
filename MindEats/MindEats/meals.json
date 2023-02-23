@@ -1,7 +1,43 @@
 [
-    {"name": "Turkey Sandwich", "description": "Sandwich with turkey in it", "price": 20.0, "imageName": "broccoli.png", "ingredients": ["turkey", "bread"], "recipe": "Put turkey between 2 peices of bread."},
-    {"name": "Varun the snacc", "description": "I hope you're Reddy", "price": 69.0, "imageName": "varun.JPG", "ingredients": ["turkey", "bread"], "recipe": "Put turkey between 2 peices of bread."},
-    {"name": "Hot Cheetos", "description": "It ain't easy being cheesy", "price": 5.0, "imageName": "cheeto.jpeg", "ingredients": ["turkey", "bread"], "recipe": "Put turkey between 2 peices of bread."},
-    {"name": "Fish", "description": "Fish are friends, not food", "price": 40.0, "imageName": "fish.png", "ingredients": ["fish"], "recipe": "cook fish and eat"},
-    {"name": "Knuckle Sandwich", "description": "F around and find out", "price": 20.0, "imageName": "knuckle-sandwhich.png", "ingredients": ["turkey", "bread"], "recipe": "Put turkey between 2 peices of bread."}
+    {
+        "name": "Turkey Sandwich",
+        "description": "Sandwich with turkey in it",
+        "price": 20.0,
+        "imageName": "broccoli.png",
+        "ingredients": ["2 slices of bread", "3-4 slices of turkey", "lettuce", "tomato", "mayonnaise"],
+        "recipe": "1. Toast the bread.\n2. Add mayonnaise to one side of each slice.\n3. Layer turkey, lettuce, and tomato on one slice of bread.\n4. Place the other slice of bread on top and cut in half."
+    },
+    {
+        "name": "Varun the snacc",
+        "description": "I hope you're Reddy",
+        "price": 69.0,
+        "imageName": "varun.JPG",
+        "ingredients": ["1 Varun", "some salt and pepper"],
+        "recipe": "1. Make sure Varun is well-groomed and freshly showered.\n2. Season with salt and pepper to taste.\n3. Enjoy your snack!"
+    },
+    {
+        "name": "Hot Cheetos",
+        "description": "It ain't easy being cheesy",
+        "price": 5.0,
+        "imageName": "cheeto.jpeg",
+        "ingredients": ["1 bag of Hot Cheetos"],
+        "recipe": "1. Open the bag of Hot Cheetos.\n2. Eat the Hot Cheetos."
+    },
+    {
+        "name": "Fish",
+        "description": "Fish are friends, not food",
+        "price": 40.0,
+        "imageName": "fish.png",
+        "ingredients": ["1 fish fillet", "flour", "egg", "bread crumbs", "oil for frying"],
+        "recipe": "1. Dredge fish fillet in flour.\n2. Dip in beaten egg.\n3. Coat with bread crumbs.\n4. Heat oil in a frying pan over medium-high heat.\n5. Fry fish until golden brown and cooked through.\n6. Serve hot."
+    },
+    {
+        "name": "Knuckle Sandwich",
+        "description": "F around and find out",
+        "price": 20.0,
+        "imageName": "knuckle-sandwhich.png",
+        "ingredients": ["2 slices of bread", "1-2 knuckles (preferably not human)"],
+        "recipe": "1. Toast the bread.\n2. Place knuckles between slices of bread.\n3. Serve with a side of pain."
+    }
 ]
+
