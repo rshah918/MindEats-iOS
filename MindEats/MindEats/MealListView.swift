@@ -79,23 +79,14 @@ struct MealRow: View {
                     Text("$\(meal.price, specifier: "%.2f")")
                         .font(.headline)
                     Spacer()
-                    
-                    Text("See Recipe")
-                        .font(.callout)
-                    
-                    
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 8)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(16)
-                    Spacer()
-                    Button("Add to Cart") {}
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 8)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(16)
+                    NavigationLink(destination: MealDetailView(meal: meal)){
+                        Text("Add to Cart")
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(16)
+                    }
                 }
             }
             .padding()
