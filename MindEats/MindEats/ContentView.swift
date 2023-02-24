@@ -28,11 +28,11 @@ struct ContentView: View {
                     Image("ME-color-logo.png")
                         .resizable()
                         .scaledToFit()
-                        .background(Color.green)
+                        .background(Color.clear)
                     
                 }
             }
-            .background(Color.green
+            .background(Color.black
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
             

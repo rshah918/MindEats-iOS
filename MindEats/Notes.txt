@@ -52,3 +52,10 @@ Added the signup page. Simplified navigation logic, I got rid of the selector in
     
 1/22/2023
 Fleshed out the Meals list page. Added infinte scroll, and pulls from JSON. Got rid of the fugly grid view, it doesnt make sense. 
+
+1/23/2023
+
+Meeting with team:
+
+Categories might not make sense due to so much overlapping-need nutritionists opinion. Alternative pivot is to add health tags to each meal. MindEat's main value add is the weekly meal plan -> grocery list mapping. Add subscription model: $2 a month + order markup. Might change this if the end user costs per meal are too high.
+

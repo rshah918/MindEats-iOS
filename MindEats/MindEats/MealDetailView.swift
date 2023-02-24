@@ -41,6 +41,7 @@ struct MealDetailView: View {
                             Picker("", selection: $selectedTab) {
                                 Text("Ingredients").tag(0)
                                 Text("Recipe").tag(1)
+                                Text("Health Facts").tag(2)
                             }
                             .pickerStyle(SegmentedPickerStyle())
                             
