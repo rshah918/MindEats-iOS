@@ -18,7 +18,7 @@ struct MealDetailView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     // Display the meal name and image
-                    Text(meal.name)
+                    Text(meal.title)
                         .font(.title)
                         .foregroundColor(.white)
                         .padding(.vertical, 10)
@@ -28,7 +28,7 @@ struct MealDetailView: View {
                         Color.white
                         VStack(spacing: 20) {
                             HStack(alignment: .center){
-                                Image(meal.imageName)
+                                Image(meal.image)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.width * 0.7)
@@ -66,7 +66,7 @@ struct MealDetailView: View {
                                         .font(.headline)
                                         .foregroundColor(.black)
                                     
-                                    Text(meal.recipe)
+                                    Text(meal.instructions)
                                         .font(.body)
                                         .foregroundColor(.black)
                                         .padding(.horizontal, 20)

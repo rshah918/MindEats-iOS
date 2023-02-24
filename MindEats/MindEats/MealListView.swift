@@ -8,14 +8,49 @@
 import SwiftUI
 import Combine
 
+
 struct Meal: Codable {
-    let name: String
-    let description: String
-    let price: Double
-    let imageName: String
+    let author: String
+    let canonical_url: String
+    let category: String
+    let cuisine: String
+    let host: String
+    let image: String
     let ingredients: [String]
-    let recipe: String
+    let instructions: String
+    var instructions_list: [String] // make it a var
+    let language: String
+    let nutrients: [String]
+    let site_name: String
+    let title: String
+    let total_time: Int
+    let yields: String
+    
+    // Define instructions_list as an empty array by default
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        author = try container.decode(String.self, forKey: .author)
+        canonical_url = try container.decodeIfPresent(String.self, forKey: .canonical_url) ?? ""
+        category = try container.decodeIfPresent(String.self, forKey: .category) ?? ""
+        cuisine = try container.decodeIfPresent(String.self, forKey: .cuisine) ?? ""
+        host = try container.decodeIfPresent(String.self, forKey: .host) ?? ""
+        image = try container.decodeIfPresent(String.self, forKey: .image) ?? "fish.png"
+        ingredients = try container.decodeIfPresent([String].self, forKey: .ingredients) ?? []
+        instructions = try container.decodeIfPresent(String.self, forKey: .instructions) ?? ""
+        instructions_list = try container.decodeIfPresent([String].self, forKey: .instructions_list) ?? []
+        language = try container.decodeIfPresent(String.self, forKey: .language) ?? ""
+        nutrients = try container.decodeIfPresent([String].self, forKey: .nutrients) ?? []
+        site_name = try container.decodeIfPresent(String.self, forKey: .site_name) ?? ""
+        title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
+        total_time = try container.decodeIfPresent(Int.self, forKey: .total_time)
+        ?? 20
+        yields = try container.decodeIfPresent(String.self, forKey: .yields)
+        ?? ""
+    }
 }
+
+
+
 
 class MealLoader: ObservableObject {
     @Published var meals: [Meal] = []
@@ -44,7 +79,7 @@ class MealLoader: ObservableObject {
                 self.totalMealCount += self.meals.count
             }
         } catch {
-            fatalError("Unable to decode meals.json")
+            print(error)
         }
     }
 }
@@ -56,19 +91,24 @@ struct MealRow: View {
     var body: some View {
         NavigationLink(destination: MealDetailView(meal: meal)){
             VStack(alignment: .leading) {
-                Image(meal.imageName)
+                let imageUrls = ["fish.png", "knuckle-sandwhich.png", "cheeto.jpeg", "broccoli.png", "varun.JPG"]
+                let imageUrl = imageUrls.randomElement() ?? "broccoli.png"
+                Image(imageUrl)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width - 62, height: 200)
                     .clipped()
                     .cornerRadius(16)
                 
-                Text(meal.name)
+                Text(meal.title)
                     .font(.headline)
+                    .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(Color.black)
                     .padding(.top, 8)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.8)
                 
-                Text(meal.description)
+                Text(meal.cuisine)
                     .font(.subheadline)
                     .foregroundColor(.gray)
                     .padding(.top, 4)
@@ -76,10 +116,10 @@ struct MealRow: View {
                 Spacer()
                 
                 HStack {
-                    Text("$\(meal.price, specifier: "%.2f")")
+                    Text("\(meal.category)")
                         .font(.headline)
                     Spacer()
-                    Text("Prep Time: 10 minutes")
+                    Text("Prep Time: \(meal.total_time)")
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
                         .background(Color.blue)
@@ -122,10 +162,11 @@ struct MealListView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.leading)
-                    ForEach(mealLoader.meals, id: \.name) { meal in
+                        .padding(.bottom, 15)
+                    ForEach(mealLoader.meals, id: \.title) { meal in
                         MealRow(meal: meal)
                             .frame(width: UIScreen.main.bounds.width - 60, height: UIScreen.main.bounds.width - 60)
-                            .padding(.bottom, 20)
+                            .padding(.bottom, 40)
                            
                     }
                     

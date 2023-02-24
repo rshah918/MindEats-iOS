@@ -28,8 +28,6 @@ struct ContentView: View {
                     Image("ME-color-logo.png")
                         .resizable()
                         .scaledToFit()
-                        .background(Color.clear)
-                    
                 }
             }
             .background(Color.black
