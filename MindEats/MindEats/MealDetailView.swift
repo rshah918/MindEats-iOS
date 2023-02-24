@@ -28,7 +28,9 @@ struct MealDetailView: View {
                         Color.white
                         VStack(spacing: 20) {
                             HStack(alignment: .center){
-                                Image(meal.image)
+                                let imageUrls = ["fish.png", "knuckle-sandwhich.png", "cheeto.jpeg", "broccoli.png", "varun.JPG"]
+                                let imageUrl = imageUrls.randomElement() ?? "broccoli.png"
+                                Image(imageUrl)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.width * 0.7)
