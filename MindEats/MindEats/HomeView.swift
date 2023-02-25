@@ -23,6 +23,7 @@ struct HomeView: View {
                                 Image(systemName: "house.fill")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
+                                    .foregroundColor(Color.black)
                                 Text("Home")
                                     .font(.title3)
                                     .foregroundColor(Color.gray)
@@ -35,6 +36,7 @@ struct HomeView: View {
                                 Image(systemName: "arrow.counterclockwise")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
+                                    .foregroundColor(Color.black)
                                 Text("History")
                                     .font(.title3)
                                     .foregroundColor(Color.gray)
@@ -44,9 +46,10 @@ struct HomeView: View {
                         
                         NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
                             VStack{
-                                Image(systemName: "square.on.square")
+                                Image( "leaf.png")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
+                                
                                 
                                 Text("Categories")
                                     .font(.title3)
@@ -59,6 +62,7 @@ struct HomeView: View {
                                 Image(systemName: "person.fill")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
+                                    .foregroundColor(Color.black)
                                 Text("Profile")
                                     .font(.title3)
                                     .foregroundColor(Color.gray)
@@ -104,7 +108,7 @@ struct HomeView: View {
                             .minimumScaleFactor(0.8)
                         
                         Spacer()
-                            .frame(height: 10)
+                            .frame(height: 70)
                         
                         NavigationLink(destination: CategoriesView()){
                             

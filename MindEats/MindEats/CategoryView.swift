@@ -28,9 +28,10 @@ struct CategoryView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
+                    .padding(.bottom, 3)
                 
                 Text("Select your main ingredient:")
-                    .font(.title3)
+                    .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)
@@ -55,7 +56,7 @@ struct CategoryView: View {
                                             .cornerRadius(15.0)
                                         
                                         Text(ingredient.name)
-                                            .font(.headline)
+                                            .font(.title2)
                                             .fontWeight(.semibold)
                                             .multilineTextAlignment(.center)
                                             .foregroundColor(.black)

@@ -111,25 +111,27 @@ struct MealRow: View {
                     .foregroundColor(Color.black)
                     .padding(.top, 8)
                     .lineLimit(2)
-                    .minimumScaleFactor(0.8)
+                    
                 
                 Text(meal.cuisine)
                     .font(.subheadline)
                     .foregroundColor(.gray)
-                    .padding(.top, 4)
+                    .padding(.top, 2)
                 
                 Spacer()
                 
                 HStack {
-                    Text("\(meal.category)")
+                    Text("Prep Time: \(meal.totalTime) minutes")
                         .font(.headline)
                     Spacer()
-                    Text("Prep Time: \(meal.totalTime)")
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(16)
+                    NavigationLink(destination: MealDetailView(meal: meal)){
+                        Text("View Meal")
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(16)
+                    }
                 }
                 .frame(width: UIScreen.main.bounds.width - 62)
 

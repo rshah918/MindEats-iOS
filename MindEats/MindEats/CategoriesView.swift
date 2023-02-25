@@ -36,7 +36,7 @@ struct CategoriesView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
-                    Text("Current Categories")
+                    Text("Select a Category")
                         .font(.title2)
                         .foregroundColor(Color.white)
                         .fontWeight(.bold)

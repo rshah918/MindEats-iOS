@@ -17,11 +17,13 @@ struct LoginView: View {
         ZStack {
             Color.green.ignoresSafeArea()
             VStack {
-                Image("AppIcon.png")
+                Image("leaf.png")
                     .resizable()
-                    .frame(width: 100, height: 100)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 100)
                     .foregroundColor(.white)
                     .cornerRadius(15.0)
+
 
                 Text("Log In")
                     .font(.largeTitle)

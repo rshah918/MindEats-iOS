@@ -20,6 +20,7 @@ struct MealDetailView: View {
                     // Display the meal name and image
                     Text(meal.title)
                         .font(.title)
+                        .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.vertical, 10)
                         .frame(maxWidth: .infinity)
@@ -50,6 +51,8 @@ struct MealDetailView: View {
                             }
                             .pickerStyle(SegmentedPickerStyle())
                             
+
+                            
                             if selectedTab == 0 {
                                 // Display the list of ingredients
                                 VStack(alignment: .leading, spacing: 10) {
@@ -78,10 +81,6 @@ struct MealDetailView: View {
                                             .foregroundColor(.black)
                                             .multilineTextAlignment(.leading)
                                     }
-//                                    Text(meal.instructions)
-//                                        .font(.body)
-//                                        .foregroundColor(.black)
-//                                        .padding(.horizontal, 20)
                                 }
                             }
                             else{

@@ -21,14 +21,15 @@ struct SignUpView: View {
                 VStack{
                     VStack{
                         
-                        Image("AppIcon.png")
+                        Image("ME-color-logo.png")
                             .resizable()
-                            .frame(width: 100, height: 100)
-                            .foregroundColor(.white)
+                            .frame(height: 100)
+                            
                             .cornerRadius(15.0)
                         HStack{
                             Text("Welcome to MindEats")
                                 .font(.largeTitle)
+                                .fontWeight(.semibold)
                                 .padding()
                                 .foregroundColor(Color.white)
                                 .lineLimit(1)
