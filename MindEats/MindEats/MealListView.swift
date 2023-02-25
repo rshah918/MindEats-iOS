@@ -18,13 +18,14 @@ struct Meal: Codable {
     let image: String
     let ingredients: [String]
     let instructions: String
-    var instructions_list: [String] // make it a var
+    let instructionsList: [String]
     let language: String
     let nutrients: [String]
     let site_name: String
     let title: String
-    let total_time: Int
+    let totalTime: Int
     let yields: String
+
     
     // Define instructions_list as an empty array by default
     init(from decoder: Decoder) throws {
@@ -37,12 +38,13 @@ struct Meal: Codable {
         image = try container.decodeIfPresent(String.self, forKey: .image) ?? "fish.png"
         ingredients = try container.decodeIfPresent([String].self, forKey: .ingredients) ?? []
         instructions = try container.decodeIfPresent(String.self, forKey: .instructions) ?? ""
-        instructions_list = try container.decodeIfPresent([String].self, forKey: .instructions_list) ?? []
+        instructionsList = try container.decodeIfPresent([String].self, forKey: .instructionsList) ?? ["empty"]
+        
         language = try container.decodeIfPresent(String.self, forKey: .language) ?? ""
         nutrients = try container.decodeIfPresent([String].self, forKey: .nutrients) ?? []
         site_name = try container.decodeIfPresent(String.self, forKey: .site_name) ?? ""
         title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
-        total_time = try container.decodeIfPresent(Int.self, forKey: .total_time)
+        totalTime = try container.decodeIfPresent(Int.self, forKey: .totalTime)
         ?? 20
         yields = try container.decodeIfPresent(String.self, forKey: .yields)
         ?? ""
@@ -91,14 +93,17 @@ struct MealRow: View {
     var body: some View {
         NavigationLink(destination: MealDetailView(meal: meal)){
             VStack(alignment: .leading) {
-                let imageUrls = ["fish.png", "knuckle-sandwhich.png", "cheeto.jpeg", "broccoli.png", "varun.JPG"]
-                let imageUrl = imageUrls.randomElement() ?? "broccoli.png"
-                Image(imageUrl)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width - 62, height: 200)
-                    .clipped()
-                    .cornerRadius(16)
+                AsyncImage(url: URL(string: meal.image)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.main.bounds.width - 62, height: 200)
+                        .clipped()
+                        .cornerRadius(16)
+                } placeholder: {
+                    ProgressView()
+                        .frame(width: UIScreen.main.bounds.width - 62, height: 200)
+                }
                 
                 Text(meal.title)
                     .font(.headline)
@@ -119,7 +124,7 @@ struct MealRow: View {
                     Text("\(meal.category)")
                         .font(.headline)
                     Spacer()
-                    Text("Prep Time: \(meal.total_time)")
+                    Text("Prep Time: \(meal.totalTime)")
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
                         .background(Color.blue)
@@ -136,6 +141,7 @@ struct MealRow: View {
         }
     }
 }
+
 
 struct MealListView: View {
     @StateObject var mealLoader = MealLoader()

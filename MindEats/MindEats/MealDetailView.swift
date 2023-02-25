@@ -28,14 +28,17 @@ struct MealDetailView: View {
                         Color.white
                         VStack(spacing: 20) {
                             HStack(alignment: .center){
-                                let imageUrls = ["fish.png", "knuckle-sandwhich.png", "cheeto.jpeg", "broccoli.png", "varun.JPG"]
-                                let imageUrl = imageUrls.randomElement() ?? "broccoli.png"
-                                Image(imageUrl)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.width * 0.7)
-                                    .cornerRadius(10)
-                                    .padding(.bottom, 20)
+                                AsyncImage(url: URL(string: meal.image)) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: UIScreen.main.bounds.width - 62, height: 200)
+                                        .clipped()
+                                        .cornerRadius(16)
+                                } placeholder: {
+                                    ProgressView()
+                                        .frame(width: UIScreen.main.bounds.width - 62, height: 200)
+                                }
                             }
                             
                             // Display either the list of ingredients or the recipe,
@@ -61,19 +64,42 @@ struct MealDetailView: View {
                                             .multilineTextAlignment(.leading)
                                     }
                                 }
-                            } else {
+                            }
+                            
+                            else if selectedTab == 1{
                                 // Display the recipe
                                 VStack(alignment: .leading, spacing: 20) {
                                     Text("Recipe:")
                                         .font(.headline)
                                         .foregroundColor(.black)
-                                    
-                                    Text(meal.instructions)
-                                        .font(.body)
-                                        .foregroundColor(.black)
-                                        .padding(.horizontal, 20)
+                                    ForEach(meal.instructionsList, id: \.self) { instruction in
+                                        Text(instruction)
+                                            .font(.body)
+                                            .foregroundColor(.black)
+                                            .multilineTextAlignment(.leading)
+                                    }
+//                                    Text(meal.instructions)
+//                                        .font(.body)
+//                                        .foregroundColor(.black)
+//                                        .padding(.horizontal, 20)
                                 }
                             }
+                            else{
+                                // Display the list of nutrients
+                                VStack(alignment: .leading, spacing: 10) {
+                                    Text("Nutrition Facts:")
+                                        .font(.headline)
+                                        .foregroundColor(.black)
+                                    
+                                    ForEach(meal.nutrients, id: \.self) { nutrient in
+                                        Text("- " + nutrient)
+                                            .font(.body)
+                                            .foregroundColor(.black)
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                }
+                            }
+                                
                             HStack(alignment: .center){
                                 Button("Add to Cart") {}
                                     .font(.title3)
