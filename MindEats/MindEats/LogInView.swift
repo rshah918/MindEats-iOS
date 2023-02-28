@@ -21,7 +21,7 @@ struct LoginView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 100)
-                    .foregroundColor(.white)
+                    .foregroundColor(.clear)
                     .cornerRadius(15.0)
 
 

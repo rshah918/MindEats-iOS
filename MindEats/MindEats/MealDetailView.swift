@@ -22,8 +22,11 @@ struct MealDetailView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                         .padding(.vertical, 10)
                         .frame(maxWidth: .infinity)
+                        .lineLimit(3)
+                        .minimumScaleFactor(0.4)
                     
                     ZStack {
                         Color.white
@@ -61,7 +64,7 @@ struct MealDetailView: View {
                                         .foregroundColor(.black)
                                     
                                     ForEach(meal.ingredients, id: \.self) { ingredient in
-                                        Text("- " + ingredient)
+                                        Text("\u{2022} " + ingredient)
                                             .font(.body)
                                             .foregroundColor(.black)
                                             .multilineTextAlignment(.leading)
@@ -91,7 +94,7 @@ struct MealDetailView: View {
                                         .foregroundColor(.black)
                                     
                                     ForEach(meal.nutrients, id: \.self) { nutrient in
-                                        Text("- " + nutrient)
+                                        Text("\u{2022} " + nutrient)
                                             .font(.body)
                                             .foregroundColor(.black)
                                             .multilineTextAlignment(.leading)
@@ -100,14 +103,19 @@ struct MealDetailView: View {
                             }
                                 
                             HStack(alignment: .center){
-                                Button("Add to Cart") {}
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color.white)
-                                    .padding()
-                                    .frame(width: 220, height: 40)
-                                    .background(Color.green)
-                                    .cornerRadius(15)
+                                NavigationLink(destination: MealPlanView()){
+                                    Text("Add to Cart")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.white)
+                                        .padding()
+                                        .frame(width: 220, height: 40)
+                                        .background(Color.green)
+                                        .cornerRadius(15)
+                                    
+                                }.simultaneousGesture(TapGesture().onEnded{
+                                    shoppingCart.append(meal)
+                                })
                             }
                         }
                         .background(Color.white)
@@ -120,5 +128,11 @@ struct MealDetailView: View {
             .cornerRadius(20)
             .padding()
         }
+    }
+}
+
+struct Previews_MealDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

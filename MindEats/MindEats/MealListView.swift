@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 
-struct Meal: Codable {
+struct Meal: Codable, Identifiable{
+    let id = UUID()
     let author: String
     let canonical_url: String
     let category: String
@@ -124,7 +125,8 @@ struct MealRow: View {
                     Text("Prep Time: \(meal.totalTime) minutes")
                         .font(.headline)
                     Spacer()
-                    NavigationLink(destination: MealDetailView(meal: meal)){
+                    NavigationLink(destination:
+                                    MealDetailView(meal: meal)){
                         Text("View Meal")
                             .padding(.horizontal, 16)
                             .padding(.vertical, 8)
@@ -165,7 +167,7 @@ struct MealListView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                     
-                    Text("Select your Meal:")
+                    Text("Select Your Meal:")
                         .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)

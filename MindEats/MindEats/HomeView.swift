@@ -18,56 +18,59 @@ struct HomeView: View {
                     Spacer()
                     
                     HStack{
-                        NavigationLink( destination:HomeView(firstName: $firstName, lastName: $lastName).navigationBarBackButtonHidden(true)){
-                            VStack{
-                                Image(systemName: "house.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .foregroundColor(Color.black)
-                                Text("Home")
-                                    .font(.title3)
-                                    .foregroundColor(Color.gray)
-                                
+                        HStack{
+                            NavigationLink( destination:HomeView(firstName: $firstName, lastName: $lastName).navigationBarBackButtonHidden(true)){
+                                VStack{
+                                    Image(systemName: "house.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundColor(Color.black)
+                                    Text("Home")
+                                        .font(.title3)
+                                        .foregroundColor(Color.gray)
+                                    
+                                }
+                            }
+                            Spacer()
+                            NavigationLink( destination:HistoryView().navigationBarBackButtonHidden(false)){
+                                VStack{
+                                    Image(systemName: "arrow.counterclockwise")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundColor(Color.black)
+                                    Text("History")
+                                        .font(.title3)
+                                        .foregroundColor(Color.gray)
+                                    
+                                }
+                            }
+                            Spacer()
+                            NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
+                                VStack{
+                                    Image( "leaf.png")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                    
+                                    
+                                    Text("Categories")
+                                        .font(.title3)
+                                        .foregroundColor(Color.gray)
+                                }
+                            }
+                            Spacer()
+                            NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
+                                VStack{
+                                    Image(systemName: "person.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundColor(Color.black)
+                                    Text("Profile")
+                                        .font(.title3)
+                                        .foregroundColor(Color.gray)
+                                }
                             }
                         }
-                        
-                        NavigationLink( destination:HistoryView().navigationBarBackButtonHidden(false)){
-                            VStack{
-                                Image(systemName: "arrow.counterclockwise")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .foregroundColor(Color.black)
-                                Text("History")
-                                    .font(.title3)
-                                    .foregroundColor(Color.gray)
-                                
-                            }
-                        }
-                        
-                        NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
-                            VStack{
-                                Image( "leaf.png")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                
-                                
-                                Text("Categories")
-                                    .font(.title3)
-                                    .foregroundColor(Color.gray)
-                            }
-                        }
-                        
-                        NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
-                            VStack{
-                                Image(systemName: "person.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .foregroundColor(Color.black)
-                                Text("Profile")
-                                    .font(.title3)
-                                    .foregroundColor(Color.gray)
-                            }
-                        }
+                        .frame(width: UIScreen.main.bounds.width * 0.85)
                     }
                     
                     .padding(10)

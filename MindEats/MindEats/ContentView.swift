@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+var shoppingCart: [Meal] = []
+
 struct ContentView: View {
     @State var isActive:Bool = false
     @State private var isLoggedIn: Bool = false
     @State private var firstName = "Rahul"
     @State private var lastName = "Shah"
     @State private var health_facts: [String] = []
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -44,8 +45,10 @@ struct ContentView: View {
                 }
             }
         }
+        .environment(\.colorScheme, .light)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
