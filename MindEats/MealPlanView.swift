@@ -20,8 +20,7 @@ struct MealPlanView: View {
                 VStack {
                     List {
                         ForEach(shoppingCart, id: \.id) { meal in
-                            ZStack {
-                                Color.green // Add a background color to the ZStack
+                            GeometryReader { geometry in
                                 Text(meal.title)
                                     .foregroundColor(Color.white)
                                     .padding(.horizontal, 10)
@@ -29,15 +28,17 @@ struct MealPlanView: View {
                                     .fixedSize(horizontal: false, vertical: true)
                                     .lineLimit(3)
                                     .minimumScaleFactor(0.5)
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                    .background(Color.green)
+                                    .cornerRadius(16)
                             }
-                            .cornerRadius(16)
+                            .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
                         }
                         .onDelete(perform: deleteItem) // Add the onDelete modifier to the ForEach view
                     }
-                    .listRowInsets(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)) // Add insets to the list rows to create spacing
-                    .background(Color.white)
                     .cornerRadius(16)
                 }
+                .frame(width: UIScreen.main.bounds.width * 0.95)
             }
         }
     }

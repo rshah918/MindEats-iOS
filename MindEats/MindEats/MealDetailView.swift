@@ -10,6 +10,8 @@ import SwiftUI
 struct MealDetailView: View {
     let meal: Meal
     @State private var selectedTab = 0
+    @State private var cartCount = shoppingCart.count
+
     
     var body: some View {
         ZStack {
@@ -102,9 +104,9 @@ struct MealDetailView: View {
                                 }
                             }
                                 
-                            HStack(alignment: .center){
-                                NavigationLink(destination: MealPlanView()){
-                                    Text("Add to Cart")
+                            HStack(alignment: .center) {
+                                NavigationLink(destination: MealPlanView()) {
+                                    Text("Add to Cart (\(cartCount))")
                                         .font(.title3)
                                         .fontWeight(.bold)
                                         .foregroundColor(Color.white)
@@ -112,9 +114,10 @@ struct MealDetailView: View {
                                         .frame(width: 220, height: 40)
                                         .background(Color.green)
                                         .cornerRadius(15)
-                                    
-                                }.simultaneousGesture(TapGesture().onEnded{
+                                }
+                                .simultaneousGesture(TapGesture().onEnded {
                                     shoppingCart.append(meal)
+                                    cartCount = shoppingCart.count // Update the cart count when the shoppingCart array is modified
                                 })
                             }
                         }

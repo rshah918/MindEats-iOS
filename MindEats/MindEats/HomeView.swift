@@ -58,13 +58,13 @@ struct HomeView: View {
                                 }
                             }
                             Spacer()
-                            NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
+                            NavigationLink( destination:MealPlanView().navigationBarBackButtonHidden(false)){
                                 VStack{
-                                    Image(systemName: "person.fill")
+                                    Image(systemName: "cart.fill")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .foregroundColor(Color.black)
-                                    Text("Profile")
+                                    Text("Cart")
                                         .font(.title3)
                                         .foregroundColor(Color.gray)
                                 }
