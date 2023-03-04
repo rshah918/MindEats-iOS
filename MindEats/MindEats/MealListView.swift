@@ -61,7 +61,7 @@ class MealLoader: ObservableObject {
     private var offset = 0
     
     func loadMeals(offset: Int) {
-        guard let url = Bundle.main.url(forResource: "meals", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "meals-us-west-1", withExtension: "json") else {
             fatalError("Unable to find meals.json")
         }
         
@@ -90,7 +90,8 @@ class MealLoader: ObservableObject {
 
 struct MealRow: View {
     let meal: Meal
-    
+    @State private var duration: UInt64 = 0
+
     var body: some View {
         NavigationLink(destination: MealDetailView(meal: meal)){
             VStack(alignment: .leading) {
@@ -119,6 +120,22 @@ struct MealRow: View {
                     .foregroundColor(.gray)
                     .padding(.top, 2)
                 
+                Text("Communication with US-West-1 (N. California) data center in \(String(format: "%.4f", Double(duration) / 1_000_000_000)) seconds")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(3)
+                    .onAppear {
+                        guard let url = URL(string: meal.image) else {
+                            print("Invalid URL: \(meal.image)")
+                            return
+                        }
+                        
+                        downloadDuration(for: url) { duration in
+                            self.duration = duration
+                        }
+                    }
+                
                 Spacer()
                 
                 HStack {
@@ -144,6 +161,24 @@ struct MealRow: View {
             .shadow(radius: 5)
         }
     }
+    func downloadDuration(for url: URL, completion: @escaping (UInt64) -> Void) {
+        let start = DispatchTime.now().uptimeNanoseconds
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data,
+               let image = UIImage(data: data) {
+                let end = DispatchTime.now()
+                let duration = end.uptimeNanoseconds - start
+                print("Image downloaded in \(duration) nanoseconds")
+                completion(duration)
+            } else if let error = error {
+                print("Error: \(error)")
+                completion(0)
+            }
+        }.resume()
+    }
+
+
 }
 
 
@@ -172,11 +207,11 @@ struct MealListView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.leading)
-                        .padding(.bottom, 15)
+                        .padding(.bottom, 45)
                     ForEach(mealLoader.meals, id: \.title) { meal in
                         MealRow(meal: meal)
                             .frame(width: UIScreen.main.bounds.width - 60, height: UIScreen.main.bounds.width - 60)
-                            .padding(.bottom, 40)
+                            .padding(.bottom, 80)
                            
                     }
                     

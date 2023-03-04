@@ -28,6 +28,8 @@
 		55CAB8E829A66EBD00F5BFED /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = 55CAB8E729A66EBD00F5BFED /* meals.json */; };
 		55CAB8EA29A6F3D500F5BFED /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */; };
 		55E0FEAA29ACF97C00D2F4B7 /* MealPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E0FEA929ACF97C00D2F4B7 /* MealPlanView.swift */; };
+		55F1278129B2DA1D0012987D /* meals-us-west-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 55F1278029B2DA1D0012987D /* meals-us-west-1.json */; };
+		55F1278329B2DA260012987D /* meals-us-east-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 55F1278229B2DA260012987D /* meals-us-east-1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		55CAB8E729A66EBD00F5BFED /* meals.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
 		55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 		55E0FEA929ACF97C00D2F4B7 /* MealPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanView.swift; sourceTree = "<group>"; };
+		55F1278029B2DA1D0012987D /* meals-us-west-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-west-1.json"; sourceTree = "<group>"; };
+		55F1278229B2DA260012987D /* meals-us-east-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-east-1.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 				558D4C9B299AEC6D006FFF97 /* Preview Content */,
 				558D4CD729A51084006FFF97 /* SignUpView.swift */,
 				558D4CD929A531D9006FFF97 /* MealListView.swift */,
+				55F1278229B2DA260012987D /* meals-us-east-1.json */,
+				55F1278029B2DA1D0012987D /* meals-us-west-1.json */,
 				55CAB8E729A66EBD00F5BFED /* meals.json */,
 				55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */,
 			);
@@ -277,6 +283,8 @@
 			files = (
 				558D4C9D299AEC6D006FFF97 /* Preview Assets.xcassets in Resources */,
 				558D4CCC299C99A0006FFF97 /* Notes.txt in Resources */,
+				55F1278129B2DA1D0012987D /* meals-us-west-1.json in Resources */,
+				55F1278329B2DA260012987D /* meals-us-east-1.json in Resources */,
 				558D4C99299AEC6D006FFF97 /* Assets.xcassets in Resources */,
 				558D4CD4299D5358006FFF97 /* categories.json in Resources */,
 				55CAB8E829A66EBD00F5BFED /* meals.json in Resources */,
@@ -491,7 +499,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MindEats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -531,7 +539,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MindEats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

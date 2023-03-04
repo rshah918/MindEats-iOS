@@ -85,7 +85,7 @@ struct HomeView: View {
                     VStack{
                         Text("Welcome, " + firstName)
                             .font(.title)
-                            .fontWeight(.semibold)
+                            .fontWeight(.bold)
                             .foregroundColor(Color.white)
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -98,7 +98,7 @@ struct HomeView: View {
                         Image("Home-Page.png")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 400, height: 250)
+                            .frame(width: UIScreen.main.bounds.width * 0.9)
                         Text("Health Fact of the Day!")
                         
                         Spacer()

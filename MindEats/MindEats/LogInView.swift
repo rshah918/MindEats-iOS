@@ -25,7 +25,7 @@ struct LoginView: View {
                     .cornerRadius(15.0)
 
 
-                Text("Log In")
+                Text("Sign In")
                     .font(.largeTitle)
                     .padding()
                 TextField("Email", text: $email)
@@ -44,7 +44,7 @@ struct LoginView: View {
                 NavigationLink(destination: HomeView(firstName: Binding.constant(""), lastName: Binding.constant(""))
                     .navigationBarBackButtonHidden(true)
                     .onAppear{isLoggedIn.toggle()}) {
-                    Text("Log In")
+                    Text("Sign In")
                         .font(.headline)
                         .foregroundColor(.green)
                         .padding()
@@ -58,7 +58,7 @@ struct LoginView: View {
                         .foregroundColor(.white)
                     NavigationLink(destination: SignUpView(isLoggedIn: $isLoggedIn)) {
                         VStack{
-                            Text("Sign up")
+                            Text("Create Account")
                                 .foregroundColor(.white)
                                 .underline()
                         }
