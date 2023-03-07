@@ -10,7 +10,7 @@ import SwiftUI
 struct MealDetailView: View {
     let meal: Meal
     @State private var selectedTab = 0
-    @State private var cartCount = shoppingCart.count
+    @State private var cartCount = shoppingCart.reduce(0) { $0 + $1.count }
 
     
     var body: some View {
@@ -91,7 +91,7 @@ struct MealDetailView: View {
                             else{
                                 // Display the list of nutrients
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("Nutrition Facts:")
+                                    Text("Nutrition Values (Per Serving):")
                                         .font(.headline)
                                         .foregroundColor(.black)
                                     
@@ -105,7 +105,7 @@ struct MealDetailView: View {
                             }
                                 
                             HStack(alignment: .center) {
-                                NavigationLink(destination: MealPlanView()) {
+                                NavigationLink(destination: ShoppingCartView()) {
                                     Text("Add to Cart (\(cartCount))")
                                         .font(.title3)
                                         .fontWeight(.bold)
@@ -116,8 +116,15 @@ struct MealDetailView: View {
                                         .cornerRadius(15)
                                 }
                                 .simultaneousGesture(TapGesture().onEnded {
-                                    shoppingCart.append(meal)
-                                    cartCount = shoppingCart.count // Update the cart count when the shoppingCart array is modified
+                                    cartCount = shoppingCart.reduce(0) { $0 + $1.count }
+ // Update the cart count when the shoppingCart array is modified
+                                    if let index = shoppingCart.firstIndex(where: { $0.title == meal.title }) {
+                                        shoppingCart[index].count += 1
+                                    }
+                                    else{
+                                        shoppingCart.append(meal)
+                                    }
+
                                 })
                             }
                         }

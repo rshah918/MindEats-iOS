@@ -31,7 +31,7 @@ struct CategoryView: View {
                     .padding(.bottom, 3)
                 
                 Text("Select your main ingredient:")
-                    .font(.subheadline)
+                    .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.leading)

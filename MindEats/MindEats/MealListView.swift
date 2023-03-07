@@ -26,7 +26,7 @@ struct Meal: Codable, Identifiable{
     let title: String
     let totalTime: Int
     let yields: String
-
+    var count: Int
     
     // Define instructions_list as an empty array by default
     init(from decoder: Decoder) throws {
@@ -40,6 +40,9 @@ struct Meal: Codable, Identifiable{
         ingredients = try container.decodeIfPresent([String].self, forKey: .ingredients) ?? []
         instructions = try container.decodeIfPresent(String.self, forKey: .instructions) ?? ""
         instructionsList = try container.decodeIfPresent([String].self, forKey: .instructionsList) ?? ["empty"]
+        count = try
+        container.decodeIfPresent(Int.self, forKey: .count) ?? 1
+        
         
         language = try container.decodeIfPresent(String.self, forKey: .language) ?? ""
         nutrients = try container.decodeIfPresent([String].self, forKey: .nutrients) ?? []
@@ -61,7 +64,7 @@ class MealLoader: ObservableObject {
     private var offset = 0
     
     func loadMeals(offset: Int) {
-        guard let url = Bundle.main.url(forResource: "meals-us-west-1", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "meals-us-west-2", withExtension: "json") else {
             fatalError("Unable to find meals.json")
         }
         
@@ -120,7 +123,7 @@ struct MealRow: View {
                     .foregroundColor(.gray)
                     .padding(.top, 2)
                 
-                Text("Communication with US-West-1 (N. California) data center in \(String(format: "%.4f", Double(duration) / 1_000_000_000)) seconds")
+                Text("Communication with US-West-2 (Oregon) data center in \(String(format: "%.4f", Double(duration) / 1_000_000_000)) seconds")
                     .font(.subheadline)
                     .foregroundColor(.gray)
                     .fixedSize(horizontal: false, vertical: true)

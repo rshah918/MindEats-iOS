@@ -58,7 +58,7 @@ struct HomeView: View {
                                 }
                             }
                             Spacer()
-                            NavigationLink( destination:MealPlanView().navigationBarBackButtonHidden(false)){
+                            NavigationLink( destination:ShoppingCartView().navigationBarBackButtonHidden(false)){
                                 VStack{
                                     Image(systemName: "cart.fill")
                                         .resizable()
@@ -100,6 +100,7 @@ struct HomeView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: UIScreen.main.bounds.width * 0.9)
                         Text("Health Fact of the Day!")
+                            .fontWeight(.semibold)
                         
                         Spacer()
                             .frame(height: 20)

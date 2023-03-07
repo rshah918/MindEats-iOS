@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5550699A29B6C788003CA5B9 /* meals-us-east-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5550699929B6C788003CA5B9 /* meals-us-east-1.json */; };
+		5550699C29B6C814003CA5B9 /* meals-us-west-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5550699B29B6C814003CA5B9 /* meals-us-west-1.json */; };
+		5550699E29B6C83C003CA5B9 /* meals-us-west-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5550699D29B6C83C003CA5B9 /* meals-us-west-2.json */; };
 		558D4C95299AEC6C006FFF97 /* MindEatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4C94299AEC6C006FFF97 /* MindEatsApp.swift */; };
 		558D4C97299AEC6C006FFF97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4C96299AEC6C006FFF97 /* ContentView.swift */; };
 		558D4C99299AEC6D006FFF97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558D4C98299AEC6D006FFF97 /* Assets.xcassets */; };
@@ -27,9 +30,7 @@
 		558D4CDA29A531D9006FFF97 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4CD929A531D9006FFF97 /* MealListView.swift */; };
 		55CAB8E829A66EBD00F5BFED /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = 55CAB8E729A66EBD00F5BFED /* meals.json */; };
 		55CAB8EA29A6F3D500F5BFED /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */; };
-		55E0FEAA29ACF97C00D2F4B7 /* MealPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E0FEA929ACF97C00D2F4B7 /* MealPlanView.swift */; };
-		55F1278129B2DA1D0012987D /* meals-us-west-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 55F1278029B2DA1D0012987D /* meals-us-west-1.json */; };
-		55F1278329B2DA260012987D /* meals-us-east-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 55F1278229B2DA260012987D /* meals-us-east-1.json */; };
+		55DBF4FC29B63D8200024F92 /* ShoppingCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DBF4FB29B63D8200024F92 /* ShoppingCartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5550699929B6C788003CA5B9 /* meals-us-east-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-east-1.json"; sourceTree = "<group>"; };
+		5550699B29B6C814003CA5B9 /* meals-us-west-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-west-1.json"; sourceTree = "<group>"; };
+		5550699D29B6C83C003CA5B9 /* meals-us-west-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-west-2.json"; sourceTree = "<group>"; };
 		558D4C91299AEC6C006FFF97 /* MindEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		558D4C94299AEC6C006FFF97 /* MindEatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindEatsApp.swift; sourceTree = "<group>"; };
 		558D4C96299AEC6C006FFF97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,9 +78,7 @@
 		558D4CD929A531D9006FFF97 /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
 		55CAB8E729A66EBD00F5BFED /* meals.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
 		55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
-		55E0FEA929ACF97C00D2F4B7 /* MealPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanView.swift; sourceTree = "<group>"; };
-		55F1278029B2DA1D0012987D /* meals-us-west-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-west-1.json"; sourceTree = "<group>"; };
-		55F1278229B2DA260012987D /* meals-us-east-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-east-1.json"; sourceTree = "<group>"; };
+		55DBF4FB29B63D8200024F92 /* ShoppingCartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,6 @@
 		558D4C88299AEC6C006FFF97 = {
 			isa = PBXGroup;
 			children = (
-				55E0FEA929ACF97C00D2F4B7 /* MealPlanView.swift */,
 				558D4CCB299C99A0006FFF97 /* Notes.txt */,
 				558D4C93299AEC6C006FFF97 /* MindEats */,
 				558D4CA5299AEC6D006FFF97 /* MindEatsTests */,
@@ -136,6 +137,7 @@
 				558D4C94299AEC6C006FFF97 /* MindEatsApp.swift */,
 				558D4CD3299D5358006FFF97 /* categories.json */,
 				558D4CD5299D90E2006FFF97 /* CategoryView.swift */,
+				55DBF4FB29B63D8200024F92 /* ShoppingCartView.swift */,
 				558D4C96299AEC6C006FFF97 /* ContentView.swift */,
 				558D4CD1299D411D006FFF97 /* health_facts.json */,
 				558D4CC3299C56CC006FFF97 /* CategoriesView.swift */,
@@ -144,8 +146,9 @@
 				558D4C9B299AEC6D006FFF97 /* Preview Content */,
 				558D4CD729A51084006FFF97 /* SignUpView.swift */,
 				558D4CD929A531D9006FFF97 /* MealListView.swift */,
-				55F1278229B2DA260012987D /* meals-us-east-1.json */,
-				55F1278029B2DA1D0012987D /* meals-us-west-1.json */,
+				5550699929B6C788003CA5B9 /* meals-us-east-1.json */,
+				5550699D29B6C83C003CA5B9 /* meals-us-west-2.json */,
+				5550699B29B6C814003CA5B9 /* meals-us-west-1.json */,
 				55CAB8E729A66EBD00F5BFED /* meals.json */,
 				55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */,
 			);
@@ -283,12 +286,13 @@
 			files = (
 				558D4C9D299AEC6D006FFF97 /* Preview Assets.xcassets in Resources */,
 				558D4CCC299C99A0006FFF97 /* Notes.txt in Resources */,
-				55F1278129B2DA1D0012987D /* meals-us-west-1.json in Resources */,
-				55F1278329B2DA260012987D /* meals-us-east-1.json in Resources */,
+				5550699A29B6C788003CA5B9 /* meals-us-east-1.json in Resources */,
 				558D4C99299AEC6D006FFF97 /* Assets.xcassets in Resources */,
 				558D4CD4299D5358006FFF97 /* categories.json in Resources */,
 				55CAB8E829A66EBD00F5BFED /* meals.json in Resources */,
 				558D4CD2299D411D006FFF97 /* health_facts.json in Resources */,
+				5550699C29B6C814003CA5B9 /* meals-us-west-1.json in Resources */,
+				5550699E29B6C83C003CA5B9 /* meals-us-west-2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,9 +321,9 @@
 				558D4CC6299C8CDC006FFF97 /* HistoryView.swift in Sources */,
 				558D4CC2299C2FD1006FFF97 /* HomeView.swift in Sources */,
 				55CAB8EA29A6F3D500F5BFED /* MealDetailView.swift in Sources */,
+				55DBF4FC29B63D8200024F92 /* ShoppingCartView.swift in Sources */,
 				558D4C97299AEC6C006FFF97 /* ContentView.swift in Sources */,
 				558D4CC4299C56CC006FFF97 /* CategoriesView.swift in Sources */,
-				55E0FEAA29ACF97C00D2F4B7 /* MealPlanView.swift in Sources */,
 				558D4CC8299C8CE9006FFF97 /* ProfileView.swift in Sources */,
 				558D4C95299AEC6C006FFF97 /* MindEatsApp.swift in Sources */,
 				558D4CD829A51085006FFF97 /* SignUpView.swift in Sources */,
@@ -499,7 +503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.0.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MindEats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -539,7 +543,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.0.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MindEats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
