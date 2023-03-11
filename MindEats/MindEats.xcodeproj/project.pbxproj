@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5550699A29B6C788003CA5B9 /* meals-us-east-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5550699929B6C788003CA5B9 /* meals-us-east-1.json */; };
+		5548619F29B79EB600541CF2 /* meals-us-east-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5548619E29B79EB600541CF2 /* meals-us-east-1.json */; };
 		5550699C29B6C814003CA5B9 /* meals-us-west-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5550699B29B6C814003CA5B9 /* meals-us-west-1.json */; };
 		5550699E29B6C83C003CA5B9 /* meals-us-west-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5550699D29B6C83C003CA5B9 /* meals-us-west-2.json */; };
 		558D4C95299AEC6C006FFF97 /* MindEatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4C94299AEC6C006FFF97 /* MindEatsApp.swift */; };
@@ -51,7 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5550699929B6C788003CA5B9 /* meals-us-east-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-east-1.json"; sourceTree = "<group>"; };
+		5548619E29B79EB600541CF2 /* meals-us-east-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-east-1.json"; sourceTree = "<group>"; };
 		5550699B29B6C814003CA5B9 /* meals-us-west-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-west-1.json"; sourceTree = "<group>"; };
 		5550699D29B6C83C003CA5B9 /* meals-us-west-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-west-2.json"; sourceTree = "<group>"; };
 		558D4C91299AEC6C006FFF97 /* MindEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,8 +146,8 @@
 				558D4C9B299AEC6D006FFF97 /* Preview Content */,
 				558D4CD729A51084006FFF97 /* SignUpView.swift */,
 				558D4CD929A531D9006FFF97 /* MealListView.swift */,
-				5550699929B6C788003CA5B9 /* meals-us-east-1.json */,
 				5550699D29B6C83C003CA5B9 /* meals-us-west-2.json */,
+				5548619E29B79EB600541CF2 /* meals-us-east-1.json */,
 				5550699B29B6C814003CA5B9 /* meals-us-west-1.json */,
 				55CAB8E729A66EBD00F5BFED /* meals.json */,
 				55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */,
@@ -286,9 +286,9 @@
 			files = (
 				558D4C9D299AEC6D006FFF97 /* Preview Assets.xcassets in Resources */,
 				558D4CCC299C99A0006FFF97 /* Notes.txt in Resources */,
-				5550699A29B6C788003CA5B9 /* meals-us-east-1.json in Resources */,
 				558D4C99299AEC6D006FFF97 /* Assets.xcassets in Resources */,
 				558D4CD4299D5358006FFF97 /* categories.json in Resources */,
+				5548619F29B79EB600541CF2 /* meals-us-east-1.json in Resources */,
 				55CAB8E829A66EBD00F5BFED /* meals.json in Resources */,
 				558D4CD2299D411D006FFF97 /* health_facts.json in Resources */,
 				5550699C29B6C814003CA5B9 /* meals-us-west-1.json in Resources */,
@@ -481,7 +481,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MindEats/MindEats.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MindEats/Preview Content\"";
 				DEVELOPMENT_TEAM = YQKQ6M73X5;
 				ENABLE_PREVIEWS = YES;
@@ -521,7 +521,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MindEats/MindEats.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MindEats/Preview Content\"";
 				DEVELOPMENT_TEAM = YQKQ6M73X5;
 				ENABLE_PREVIEWS = YES;

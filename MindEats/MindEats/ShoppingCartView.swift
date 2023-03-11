@@ -82,7 +82,7 @@ struct CartItemRow: View {
         VStack {
             HStack(spacing: 20) {
                 Image(systemName: showIngredients ? "chevron.down.circle.fill" : "chevron.right.circle.fill")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.green)
                         .font(.body)
                 VStack(alignment: .leading) {
                     Text(item.title)
