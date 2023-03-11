@@ -123,7 +123,7 @@ struct MealRow: View {
                     .foregroundColor(.gray)
                     .padding(.top, 2)
                 
-                Text("Communication with US-West-2 (N. California) data center in \(String(format: "%.4f", Double(duration) / 1_000_000_000)) seconds")
+                Text("Communication with US-West-2 (Oregon) data center in \(String(format: "%.4f", Double(duration) / 1_000_000_000)) seconds")
                     .font(.subheadline)
                     .foregroundColor(.gray)
                     .fixedSize(horizontal: false, vertical: true)
