@@ -13,73 +13,7 @@ struct MealPlanningView: View {
     var body: some View {
         NavigationStack {
             ZStack{
-                VStack{
-                    Spacer()
-                    
-                    HStack{
-                        HStack{
-                            NavigationLink( destination:HomeView().navigationBarBackButtonHidden(true)){
-                                VStack{
-                                    Image(systemName: "house.fill")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .foregroundColor(Color.black)
-                                    Text("Home")
-                                        .font(.title3)
-                                        .foregroundColor(Color.gray)
-                                    
-                                }
-                            }
-                            Spacer()
-                            NavigationLink( destination:MealPlanningView().navigationBarBackButtonHidden(false)){
-                                VStack{
-                                    Image(systemName: "calendar")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .foregroundColor(Color.black)
-                                    Text("Meal Plan")
-                                        .font(.title3)
-                                        .foregroundColor(Color.gray)
-                                    
-                                }
-                            }
-                            Spacer()
-                            NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
-                                VStack{
-                                    Image( "leaf.png")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                    
-                                    
-                                    Text("Categories")
-                                        .font(.title3)
-                                        .foregroundColor(Color.gray)
-                                }
-                            }
-                            Spacer()
-                            NavigationLink( destination:ShoppingCartView().navigationBarBackButtonHidden(false)){
-                                VStack{
-                                    Image(systemName: "cart.fill")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .foregroundColor(Color.black)
-                                    Text("Cart")
-                                        .font(.title3)
-                                        .foregroundColor(Color.gray)
-                                }
-                            }
-                        }
-                        .frame(width: UIScreen.main.bounds.width * 0.85)
-                    }
-                    
-                    .padding(10)
-                    .padding(.bottom, 10)
-                    .frame(width: UIScreen.main.bounds.width, height: 80, alignment: .bottom)
-                    .background(Color.white)
-                    .cornerRadius(15)
-                }
-                .zIndex(1)
-                .ignoresSafeArea()
+                NavBarView()
                 NavigationView {
                     ScrollView {
                         Text("Meal Planning")
@@ -93,18 +27,26 @@ struct MealPlanningView: View {
                         
                         // List of expandable sections for each day of the week
                         VStack {
-                            ForEach(daysOfWeek, id: \.self) { day in
-                                ZStack{
-                                    Color.white
-                                    VStack(alignment:.leading){
-                                        Section(header: Text(day).fontWeight(.semibold)) {
-                                            MealList(dayOfWeek: day)
+                            ZStack{
+                                Color(.systemGray5)
+                                VStack{
+                                    ForEach(daysOfWeek, id: \.self) { day in
+                                        ZStack{
+                                            Color.white
+                                            VStack(alignment:.leading){
+                                                Section(header: Text(day).fontWeight(.semibold)) {
+                                                    MealList(dayOfWeek: day)
+                                                }
+                                                .padding(5)
+                                            }
                                         }
-                                        .padding(5)
+                                        .cornerRadius(10)
                                     }
                                 }
-                                .cornerRadius(10)
+                                .padding()
                             }
+                            .cornerRadius(10)
+                            
                             HStack{
                     
                                 
