@@ -41,7 +41,7 @@ struct LoginView: View {
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
                     .colorScheme(.light)
-                NavigationLink(destination: HomeView(firstName: Binding.constant(""), lastName: Binding.constant(""))
+                NavigationLink(destination: HomeView()
                     .navigationBarBackButtonHidden(true)
                     .onAppear{isLoggedIn.toggle()}) {
                     Text("Sign In")

@@ -10,7 +10,6 @@ import SwiftUI
 struct CategoryView: View {
     let category: Category
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    
     @State var selectedIngredient = ""
     var body: some View {
 

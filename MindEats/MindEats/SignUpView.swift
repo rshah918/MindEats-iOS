@@ -103,7 +103,7 @@ struct SignUpView: View {
                             .padding(.bottom, 20)
                             .colorScheme(.light)
                         
-                        NavigationLink(destination: HomeView(firstName: $firstName, lastName: $lastName)
+                        NavigationLink(destination: HomeView()
                             .navigationBarBackButtonHidden(true)) {
                             Text("Sign Up")
                                 .font(.headline)

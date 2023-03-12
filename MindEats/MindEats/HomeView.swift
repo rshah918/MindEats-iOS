@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var firstName: String
-    @Binding var lastName: String
+    @State var currentDay: String = "Tuesday"
 
     var body: some View {
         NavigationStack {
@@ -19,7 +18,7 @@ struct HomeView: View {
                     
                     HStack{
                         HStack{
-                            NavigationLink( destination:HomeView(firstName: $firstName, lastName: $lastName).navigationBarBackButtonHidden(true)){
+                            NavigationLink( destination:HomeView().navigationBarBackButtonHidden(true)){
                                 VStack{
                                     Image(systemName: "house.fill")
                                         .resizable()
@@ -32,13 +31,13 @@ struct HomeView: View {
                                 }
                             }
                             Spacer()
-                            NavigationLink( destination:HistoryView().navigationBarBackButtonHidden(false)){
+                            NavigationLink( destination:MealPlanningView().navigationBarBackButtonHidden(false)){
                                 VStack{
-                                    Image(systemName: "arrow.counterclockwise")
+                                    Image(systemName: "calendar")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .foregroundColor(Color.black)
-                                    Text("History")
+                                    Text("Meal Plan")
                                         .font(.title3)
                                         .foregroundColor(Color.gray)
                                     
@@ -114,7 +113,7 @@ struct HomeView: View {
                         Spacer()
                             .frame(height: 70)
                         
-                        NavigationLink(destination: CategoriesView()){
+                        NavigationLink(destination: MealPlanningView()){
                             
                             Text("Find your next Meal!")
                                 .font(.title3)
@@ -147,8 +146,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        let firstName = "Rahul"
-        let lastName = "Shah"
-        HomeView(firstName: Binding.constant(firstName), lastName: Binding.constant(lastName))
+        HomeView()
     }
 }

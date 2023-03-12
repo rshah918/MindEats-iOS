@@ -8,12 +8,12 @@
 import SwiftUI
 
 var shoppingCart: [Meal] = []
+var firstName = "Rahul"
+var lastName = "Shah"
 var currentDay: String = "Monday"
 struct ContentView: View {
     @State var isActive:Bool = false
     @State private var isLoggedIn: Bool = false
-    @State private var firstName = "Rahul"
-    @State private var lastName = "Shah"
     @State private var health_facts: [String] = []
     var body: some View {
         NavigationStack {
@@ -23,7 +23,7 @@ struct ContentView: View {
                         LoginView(isLoggedIn: $isLoggedIn)
                     }
                     else{
-                        HomeView(firstName: $firstName, lastName: $lastName)
+                        HomeView()
                     }
                 } else {
                     Image("ME-color-logo.png")

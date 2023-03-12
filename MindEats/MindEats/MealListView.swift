@@ -192,7 +192,7 @@ struct MealListView: View {
     @StateObject var mealLoader = MealLoader()
     @State private var reachedEnd = false
     @Binding var selectedIngredient: String
-    
+    var currentDay: String="Monday"
     var body: some View {
         NavigationView {
             ScrollView {
