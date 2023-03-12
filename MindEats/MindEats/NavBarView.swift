@@ -27,7 +27,7 @@ struct NavBarView: View {
                         }
                     }
                     Spacer()
-                    NavigationLink( destination:MealPlanningView().navigationBarBackButtonHidden(false)){
+                    NavigationLink( destination:MealPlanningView().navigationBarBackButtonHidden(true)){
                         VStack{
                             Image(systemName: "calendar")
                                 .resizable()
@@ -40,7 +40,7 @@ struct NavBarView: View {
                         }
                     }
                     Spacer()
-                    NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(false)){
+                    NavigationLink( destination:CategoriesView().navigationBarBackButtonHidden(true)){
                         VStack{
                             Image( "leaf.png")
                                 .resizable()
@@ -53,7 +53,7 @@ struct NavBarView: View {
                         }
                     }
                     Spacer()
-                    NavigationLink( destination:ShoppingCartView().navigationBarBackButtonHidden(false)){
+                    NavigationLink( destination:ShoppingCartView().navigationBarBackButtonHidden(true)){
                         VStack{
                             Image(systemName: "cart.fill")
                                 .resizable()

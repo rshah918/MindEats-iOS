@@ -10,68 +10,71 @@ import SwiftUI
 struct ShoppingCartView: View {
 
     var body: some View {
-        VStack {
-            if shoppingCart.isEmpty {
-                Text("Your cart is empty.")
-                    .foregroundColor(.gray)
-                    .font(.title)
-                    .padding(.top, 50)
-            } else {
-                List {
-                    ForEach(shoppingCart) { item in
-                        CartItemRow(item: item)
+        ZStack{
+            Spacer()
+            NavBarView()
+            VStack {
+                if shoppingCart.isEmpty {
+                    Text("Your cart is empty.")
+                        .foregroundColor(.gray)
+                        .font(.title)
+                        .padding(.top, 50)
+                } else {
+                    List {
+                        ForEach(shoppingCart) { item in
+                            CartItemRow(item: item)
+                        }
+                        .onDelete(perform: deleteItems)
                     }
-                    .onDelete(perform: deleteItems)
+                    .listStyle(.plain)
+                    .padding(.top, 20)
                 }
-                .listStyle(.plain)
-                .padding(.top, 20)
-            }
-
-            HStack {
-                Text("Total:")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-
-                Spacer()
-
-                Text("$\(34.97, specifier: "%.2f")")
-                    .font(.title)
-                    .fontWeight(.bold)
-            }
-            .padding(.vertical, 5)
-            .padding(.horizontal, 20)
-            .background(Color.white)
-            .foregroundColor(.black)
-
-            if !shoppingCart.isEmpty {
-                Button(action: placeOrder) {
-                    Text("Place Order")
-                        .font(.title3)
+                
+                HStack {
+                    Text("Total:")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Text("$\(34.97, specifier: "%.2f")")
+                        .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(Color.white)
-                        .padding()
-                        .frame(width: 220, height: 40)
-                        .background(Color.green)
-                        .cornerRadius(15)
                 }
-                .padding(.bottom, 20)
+                .padding(.vertical, 5)
+                .padding(.horizontal, 20)
+                .background(Color.white)
+                .foregroundColor(.black)
+                
+                if !shoppingCart.isEmpty {
+                    Button(action: placeOrder) {
+                        Text("Place Order")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                            .padding()
+                            .frame(width: 220, height: 40)
+                            .background(Color.green)
+                            .cornerRadius(15)
+                    }
+                    .padding(.bottom, 20)
+                }
+            }
+            .navigationBarTitle(" Shopping Cart")
+            .navigationBarTitleDisplayMode(.inline)
+            .background(Color.white)
+            .onAppear {
+                UITableView.appearance().backgroundColor = UIColor.green
             }
         }
-        .navigationBarTitle(" Shopping Cart")
-        .navigationBarTitleDisplayMode(.inline)
-        .background(Color.white)
-        .onAppear {
-            UITableView.appearance().backgroundColor = UIColor.green
+    }
+        func deleteItems(at offsets: IndexSet) {
+            shoppingCart.remove(atOffsets: offsets)
         }
-    }
-
-    func deleteItems(at offsets: IndexSet) {
-        shoppingCart.remove(atOffsets: offsets)
-    }
-
-    func placeOrder() {
-        // TODO: Implement order placing logic
-    }
+        
+        func placeOrder() {
+            // TODO: Implement order placing logic
+        }
 }
 
 struct CartItemRow: View {

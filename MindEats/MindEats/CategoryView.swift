@@ -15,6 +15,8 @@ struct CategoryView: View {
 
         ZStack{
             Color.green.ignoresSafeArea()
+            Spacer()
+            NavBarView()
             ScrollView {
             VStack{
                 Image("ME-color-logo.png")

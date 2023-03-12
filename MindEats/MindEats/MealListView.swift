@@ -99,92 +99,91 @@ struct MealRow: View {
     @State private var duration: UInt64 = 0
 
     var body: some View {
-        NavigationLink(destination: MealDetailView(meal: meal)){
-            VStack(alignment: .leading) {
-                AsyncImage(url: URL(string: meal.image)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: UIScreen.main.bounds.width - 62, height: 200)
-                        .clipped()
-                        .cornerRadius(16)
-                } placeholder: {
-                    ProgressView()
-                        .frame(width: UIScreen.main.bounds.width - 62, height: 200)
-                }
-                
-                Text(meal.title)
-                    .font(.headline)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .foregroundColor(Color.black)
-                    .padding(.top, 8)
-                    .lineLimit(2)
-                    
-                
-                Text(meal.cuisine)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .padding(.top, 2)
-                
-                Text("Communication with US-West-2 (Oregon) data center in \(String(format: "%.4f", Double(duration) / 1_000_000_000)) seconds")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .lineLimit(3)
-                    .onAppear {
-                        guard let url = URL(string: meal.image) else {
-                            print("Invalid URL: \(meal.image)")
-                            return
-                        }
-                        
-                        downloadDuration(for: url) { duration in
-                            self.duration = duration
-                        }
-                    }
-                
-                Spacer()
-                
-                HStack {
-                    Text("Prep Time: \(meal.totalTime) minutes")
-                        .font(.headline)
-                    Spacer()
-                    NavigationLink(destination:
-                                    MealDetailView(meal: meal)){
-                        Text("View Meal")
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
+            NavigationLink(destination: MealDetailView(meal: meal)){
+                VStack(alignment: .leading) {
+                    AsyncImage(url: URL(string: meal.image)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width - 62, height: 200)
+                            .clipped()
                             .cornerRadius(16)
+                    } placeholder: {
+                        ProgressView()
+                            .frame(width: UIScreen.main.bounds.width - 62, height: 200)
                     }
+                    
+                    Text(meal.title)
+                        .font(.headline)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .foregroundColor(Color.black)
+                        .padding(.top, 8)
+                        .lineLimit(2)
+                    
+                    
+                    Text(meal.cuisine)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.top, 2)
+                    
+                    Text("Communication with US-West-2 (Oregon) data center in \(String(format: "%.4f", Double(duration) / 1_000_000_000)) seconds")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .lineLimit(3)
+                        .onAppear {
+                            guard let url = URL(string: meal.image) else {
+                                print("Invalid URL: \(meal.image)")
+                                return
+                            }
+                            
+                            downloadDuration(for: url) { duration in
+                                self.duration = duration
+                            }
+                        }
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text("Prep Time: \(meal.totalTime) minutes")
+                            .font(.headline)
+                        Spacer()
+                        NavigationLink(destination:
+                                        MealDetailView(meal: meal)){
+                            Text("View Meal")
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(16)
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width - 62)
+                    
                 }
-                .frame(width: UIScreen.main.bounds.width - 62)
-
+                .padding()
+                .background(Color.white)
+                .cornerRadius(16)
+                .shadow(radius: 5)
             }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(16)
-            .shadow(radius: 5)
         }
-    }
-    func downloadDuration(for url: URL, completion: @escaping (UInt64) -> Void) {
-        let start = DispatchTime.now().uptimeNanoseconds
+        func downloadDuration(for url: URL, completion: @escaping (UInt64) -> Void) {
+            let start = DispatchTime.now().uptimeNanoseconds
+            
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data,
+                   let image = UIImage(data: data) {
+                    let end = DispatchTime.now()
+                    let duration = end.uptimeNanoseconds - start
+                    print("Image downloaded in \(duration) nanoseconds")
+                    completion(duration)
+                } else if let error = error {
+                    print("Error: \(error)")
+                    completion(0)
+                }
+            }.resume()
+        }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data,
-               let image = UIImage(data: data) {
-                let end = DispatchTime.now()
-                let duration = end.uptimeNanoseconds - start
-                print("Image downloaded in \(duration) nanoseconds")
-                completion(duration)
-            } else if let error = error {
-                print("Error: \(error)")
-                completion(0)
-            }
-        }.resume()
-    }
-
-
 }
 
 
@@ -194,52 +193,56 @@ struct MealListView: View {
     @Binding var selectedIngredient: String
     var currentDay: String="Monday"
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVStack {
-                    Image("ME-color-logo.png")
-                        .resizable()
-                        .frame(width: 300, height: 90)
-                        .foregroundColor(.white)
-                        .cornerRadius(15.0)
-                    
-                    Text("You Selected: \(selectedIngredient)")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.white)
-                    
-                    Text("Select Your Meal:")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.leading)
-                        .padding(.bottom, 45)
-                    ForEach(mealLoader.meals, id: \.title) { meal in
-                        MealRow(meal: meal)
-                            .frame(width: UIScreen.main.bounds.width - 60, height: UIScreen.main.bounds.width - 60)
-                            .padding(.bottom, 80)
-                           
-                    }
-                    
-                    if mealLoader.meals.isEmpty {
-                        ProgressView()
-                            .padding(.vertical, 32)
-                    } else if !reachedEnd {
-                        ProgressView()
-                            .padding(.vertical, 32)
-                            .onAppear {
-                                mealLoader.loadMeals(offset: mealLoader.meals.count)
-                            }
+        ZStack{
+            Spacer()
+            NavBarView()
+            NavigationView {
+                ScrollView {
+                    LazyVStack {
+                        Image("ME-color-logo.png")
+                            .resizable()
+                            .frame(width: 300, height: 90)
+                            .foregroundColor(.white)
+                            .cornerRadius(15.0)
+                        
+                        Text("You Selected: \(selectedIngredient)")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                        
+                        Text("Select Your Meal:")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom, 45)
+                        ForEach(mealLoader.meals, id: \.title) { meal in
+                            MealRow(meal: meal)
+                                .frame(width: UIScreen.main.bounds.width - 60, height: UIScreen.main.bounds.width - 60)
+                                .padding(.bottom, 80)
+                            
+                        }
+                        
+                        if mealLoader.meals.isEmpty {
+                            ProgressView()
+                                .padding(.vertical, 32)
+                        } else if !reachedEnd {
+                            ProgressView()
+                                .padding(.vertical, 32)
+                                .onAppear {
+                                    mealLoader.loadMeals(offset: mealLoader.meals.count)
+                                }
+                        }
                     }
                 }
-            }
-            .background(Color.green)
-            .onAppear {
-                mealLoader.loadMeals(offset: 0)
-            }
-            .onChange(of: mealLoader.meals.count) { newValue in
-                if newValue == mealLoader.totalMealCount {
-                    reachedEnd = true
+                .background(Color.green)
+                .onAppear {
+                    mealLoader.loadMeals(offset: 0)
+                }
+                .onChange(of: mealLoader.meals.count) { newValue in
+                    if newValue == mealLoader.totalMealCount {
+                        reachedEnd = true
+                    }
                 }
             }
         }

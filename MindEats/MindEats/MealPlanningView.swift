@@ -28,7 +28,7 @@ struct MealPlanningView: View {
                         // List of expandable sections for each day of the week
                         VStack {
                             ZStack{
-                                Color(.systemGray5)
+                                Color(.systemGray6)
                                 VStack{
                                     ForEach(daysOfWeek, id: \.self) { day in
                                         ZStack{

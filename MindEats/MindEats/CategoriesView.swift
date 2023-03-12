@@ -21,62 +21,66 @@ struct CategoriesView: View {
     let columns = Array(repeating: GridItem(.flexible()), count: 2)
     
     var body: some View {
-        
-        NavigationView {
- 
-            ScrollView {
-                VStack{
-                    Image("ME-color-logo.png")
-                        .resizable()
-                        .frame(width: 300, height: 90)
-                        .foregroundColor(.white)
-                        .cornerRadius(15.0)
-                    
-                    Text("")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.white)
-                    Text("Select a Category")
-                        .font(.title2)
-                        .foregroundColor(Color.white)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.leading)
-                    
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(categories, id: \.category) { category in
-                            NavigationLink(destination: CategoryView(category: category)) {
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width: 150, height: 150)
-                                        .foregroundColor(.white)
-                                        .cornerRadius(10)
-                                    VStack(spacing: 10) {
-                                        Image(category.image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 100, height: 100)
+        ZStack{
+            Spacer()
+            NavBarView()
+            
+            NavigationView {
+                
+                ScrollView {
+                    VStack{
+                        Image("ME-color-logo.png")
+                            .resizable()
+                            .frame(width: 300, height: 90)
+                            .foregroundColor(.white)
+                            .cornerRadius(15.0)
+                        
+                        Text("")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                        Text("Select a Category")
+                            .font(.title2)
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                        
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(categories, id: \.category) { category in
+                                NavigationLink(destination: CategoryView(category: category)) {
+                                    ZStack {
+                                        Rectangle()
+                                            .frame(width: 150, height: 150)
+                                            .foregroundColor(.white)
                                             .cornerRadius(10)
-                                        Text(category.category)
-                                            .font(.headline)
-                                            .fontWeight(.semibold)
-                                            .multilineTextAlignment(.center)
-                                            .foregroundColor(.black)
+                                        VStack(spacing: 10) {
+                                            Image(category.image)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 100, height: 100)
+                                                .cornerRadius(10)
+                                            Text(category.category)
+                                                .font(.headline)
+                                                .fontWeight(.semibold)
+                                                .multilineTextAlignment(.center)
+                                                .foregroundColor(.black)
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                .padding(.horizontal)
-            }.background(Color.green)
-        }
-        .onAppear {
-            if let fileURL = Bundle.main.url(forResource: "categories", withExtension: "json") {
-                do {
-                    let data = try Data(contentsOf: fileURL)
-                    categories = try JSONDecoder().decode([Category].self, from: data)
-                } catch {
-                    print(error.localizedDescription)
+                    .padding(.horizontal)
+                }.background(Color.green)
+            }
+            .onAppear {
+                if let fileURL = Bundle.main.url(forResource: "categories", withExtension: "json") {
+                    do {
+                        let data = try Data(contentsOf: fileURL)
+                        categories = try JSONDecoder().decode([Category].self, from: data)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }
