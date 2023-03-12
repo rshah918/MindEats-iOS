@@ -8,7 +8,7 @@
 import SwiftUI
 
 var shoppingCart: [Meal] = []
-
+var currentDay: String = "Monday"
 struct ContentView: View {
     @State var isActive:Bool = false
     @State private var isLoggedIn: Bool = false

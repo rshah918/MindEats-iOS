@@ -27,6 +27,7 @@ struct Meal: Codable, Identifiable{
     let totalTime: Int
     let yields: String
     var count: Int
+    var dayOfWeek: String
     
     // Define instructions_list as an empty array by default
     init(from decoder: Decoder) throws {
@@ -52,6 +53,8 @@ struct Meal: Codable, Identifiable{
         ?? 20
         yields = try container.decodeIfPresent(String.self, forKey: .yields)
         ?? ""
+        dayOfWeek = try container.decodeIfPresent(String.self, forKey: .dayOfWeek)
+        ?? currentDay
     }
 }
 

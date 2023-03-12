@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5548619F29B79EB600541CF2 /* meals-us-east-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5548619E29B79EB600541CF2 /* meals-us-east-1.json */; };
+		5549763A29BD6E0D00C870D1 /* MealPlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5549763929BD6E0D00C870D1 /* MealPlanningView.swift */; };
 		5550699C29B6C814003CA5B9 /* meals-us-west-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5550699B29B6C814003CA5B9 /* meals-us-west-1.json */; };
 		5550699E29B6C83C003CA5B9 /* meals-us-west-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5550699D29B6C83C003CA5B9 /* meals-us-west-2.json */; };
 		558D4C95299AEC6C006FFF97 /* MindEatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D4C94299AEC6C006FFF97 /* MindEatsApp.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		5548619E29B79EB600541CF2 /* meals-us-east-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-east-1.json"; sourceTree = "<group>"; };
+		5549763929BD6E0D00C870D1 /* MealPlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanningView.swift; sourceTree = "<group>"; };
 		5550699B29B6C814003CA5B9 /* meals-us-west-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-west-1.json"; sourceTree = "<group>"; };
 		5550699D29B6C83C003CA5B9 /* meals-us-west-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "meals-us-west-2.json"; sourceTree = "<group>"; };
 		558D4C91299AEC6C006FFF97 /* MindEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 				5550699B29B6C814003CA5B9 /* meals-us-west-1.json */,
 				55CAB8E729A66EBD00F5BFED /* meals.json */,
 				55CAB8E929A6F3D500F5BFED /* MealDetailView.swift */,
+				5549763929BD6E0D00C870D1 /* MealPlanningView.swift */,
 			);
 			path = MindEats;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			files = (
 				558D4CC0299C27F8006FFF97 /* LogInView.swift in Sources */,
 				558D4CC6299C8CDC006FFF97 /* HistoryView.swift in Sources */,
+				5549763A29BD6E0D00C870D1 /* MealPlanningView.swift in Sources */,
 				558D4CC2299C2FD1006FFF97 /* HomeView.swift in Sources */,
 				55CAB8EA29A6F3D500F5BFED /* MealDetailView.swift in Sources */,
 				55DBF4FC29B63D8200024F92 /* ShoppingCartView.swift in Sources */,

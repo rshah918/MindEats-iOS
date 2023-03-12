@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MealDetailView: View {
-    let meal: Meal
+    var meal: Meal
     @State private var selectedTab = 0
     @State private var cartCount = shoppingCart.reduce(0) { $0 + $1.count }
 
@@ -105,7 +105,7 @@ struct MealDetailView: View {
                             }
                                 
                             HStack(alignment: .center) {
-                                NavigationLink(destination: ShoppingCartView()) {
+                                NavigationLink(destination: MealPlanningView().navigationBarBackButtonHidden(true)) {
                                     Text("Add to Cart (\(cartCount))")
                                         .font(.title3)
                                         .fontWeight(.bold)
@@ -116,6 +116,7 @@ struct MealDetailView: View {
                                         .cornerRadius(15)
                                 }
                                 .simultaneousGesture(TapGesture().onEnded {
+
                                     cartCount = shoppingCart.reduce(0) { $0 + $1.count }
  // Update the cart count when the shoppingCart array is modified
                                     if let index = shoppingCart.firstIndex(where: { $0.title == meal.title }) {
