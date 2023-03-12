@@ -81,7 +81,7 @@ struct MealPlanningView: View {
                 .zIndex(1)
                 .ignoresSafeArea()
                 NavigationView {
-                    VStack {
+                    ScrollView {
                         Text("Meal Planning")
                             .font(.title)
                             .fontWeight(.semibold)
@@ -92,15 +92,22 @@ struct MealPlanningView: View {
                             .padding(.top, 5)
                         
                         // List of expandable sections for each day of the week
-                        List {
+                        VStack {
                             ForEach(daysOfWeek, id: \.self) { day in
-                                Section(header: Text(day)) {
-                                    MealList(dayOfWeek: day)
+                                ZStack{
+                                    Color.white
+                                    VStack(alignment:.leading){
+                                        Section(header: Text(day).fontWeight(.semibold)) {
+                                            MealList(dayOfWeek: day)
+                                        }
+                                        .padding(5)
+                                    }
                                 }
+                                .cornerRadius(10)
                             }
                             HStack{
-                                Spacer()
-                                    .frame(width: UIScreen.main.bounds.width * 0.2)
+                    
+                                
                                 NavigationLink(destination: ShoppingCartView().navigationBarBackButtonHidden(false)) {
                                     Text("Shopping Cart")
                                         .font(.headline)
@@ -113,6 +120,12 @@ struct MealPlanningView: View {
                                 }
                                 .frame(alignment: .center)
                             }
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
                             Spacer()
                         }
                         .clipped()
@@ -140,9 +153,11 @@ struct MealList: View {
                         .foregroundColor(.secondary)
                 } else {
                     ForEach(shoppingCart.filter { $0.dayOfWeek == dayOfWeek }, id: \.title) { meal in
-                        Text(meal.title)
-                            .font(.title3)
+                        Text("\u{2022} " + meal.title)
+                            .font(.body)
                             .foregroundColor(.primary)
+                            .lineLimit(3)
+                        Divider()
                     }
                 }
 
